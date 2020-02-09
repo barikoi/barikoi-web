@@ -1,0 +1,81 @@
+@import '_variables';
+
+.component {
+    margin-bottom: 100px;
+}
+
+.txt-bkoi-green {
+    color: rgb(7, 88, 7);
+}
+
+.txt-white {
+    color: #fff;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    background: #fff;
+    border-radius: 4px;
+}
+
+.box-card {
+    width: 450px;
+    margin-bottom: 20px;
+
+    .uneven-img {
+      max-height: 160px;
+    }
+
+    img {
+      max-height: 150px;
+      max-width: 100%;
+    }
+  }
+  
+// home 
+  .box-card {
+    width: 420px;
+    margin-bottom: 20px;
+
+    .uneven-img {
+      max-height: 160px;
+    }
+
+    img {
+      max-height: 120px;
+      max-width: 100%;
+    }
+  }
+
+  .bkoi-home-left-content {
+    padding-left: 10em;
+  }
+
+// home
+
+// css color block
+
+.pricing-highlight {
+  p {
+    padding-right: 1em;
+  }
+}
+
+.color-block {
+  // float: left;
+  width: 12px;
+  height: 12px;
+  margin: 5px 25px;
+  border: none;
+}
+
+.color-sky {
+  background: $color-block-sky;
+}
+
+.color-paste {
+  background: $color-block-paste;
+}
+
+.color-violet {
+  background: $color-block-violet;
+}

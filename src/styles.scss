@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '_customs';
+@import '_variables';
+@import '_buttons';
+@import '_typography';
+
+html,
+body {
+    height: 100%;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Rubik", sans-serif;
+    background: #fff;
+    color: $dark-sky;
+    font-size: 16px;
+}

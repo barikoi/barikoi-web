@@ -1,0 +1,84 @@
+h1, h2, h3, h3 {
+    font-family: 'Roboto', sans-serif;
+}
+
+h2, h3, h3 {
+    margin: 12px 0;
+}
+
+// header
+h1 {
+    font-size: 40px;
+    font-weight: 700;
+    opacity: 90%;
+    // line-height: 80;
+}
+
+// subheader
+h2 {
+    font-size: 32px;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: 32px;
+    font-weight: 300;
+}
+
+h4 {
+    font-size: 32px;
+    font-weight: 400;
+}
+
+p, a, small, legend {
+    font-family: 'Rubik', sans-serif;
+}
+
+// body text
+p {
+    font-size: 20px;
+    // font: 32px/44px;
+    line-height: 1.3;
+    // font-weight: 400;
+}
+
+
+.p-light-smaller, .p-light-small, .p-light-default {
+    font-weight: 300;
+}
+
+.p-light-smaller {
+    font-size: 15px;
+}
+
+.p-light-small {
+    font-size: 18px;
+}
+
+p, small {
+    margin: 10px 0;
+}
+
+legend {
+    margin: 10px 0;
+}
+
+a {
+    // font-size: 16px;
+    color: $link;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+small {
+    font-weight: 300;
+}
+
+legend {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.text-center {
+    text-align: center;
+}

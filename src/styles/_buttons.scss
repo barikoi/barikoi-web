@@ -1,0 +1,133 @@
+@import '_variables';
+// bkoi custom buttons
+
+// search-bar form
+.bkoi-search {
+  form {
+    margin-top: 2.5em;
+    position: relative;
+    // top: 50%;
+    // left: 50%;
+    /*     transform: translate(-50%,-50%);
+        transition: all 1s; */
+    /*     width: 50px; */
+    height: 50px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 4px solid white;
+    padding: 5px;
+
+
+    width: 400px;
+    cursor: pointer;
+    display: block;
+    /*   background: #07051a; */
+    color: white;
+
+    input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      ;
+      height: 42.5px;
+      line-height: 30px;
+      outline: 0;
+      border: 0;
+      /*     display: none; */
+      font-size: 1em;
+      border-radius: 20px;
+      padding: 0 20px;
+    }
+
+    mat-icon {
+      box-sizing: border-box;
+      padding: 6px;
+      width: 50px;
+      height: 42.5px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-radius: 10px;
+      color: #fff;
+      text-align: center;
+      font-size: 2em;
+      transition: all 1s;
+      background: linear-gradient(to right, $neon-green, $lime-green);
+    }
+  }
+}
+
+
+// Barikoi Buttons
+
+.bkoi-btn {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 10px;
+
+  &:focus {
+    outline: none;
+  }
+  &:active {
+      outline: none;
+  }
+}
+
+.bkoi-btn-primary {
+
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  padding: .8em 1.4em;
+  padding-right: 4.7em;
+  background: linear-gradient(to right, $neon-green, $lime-green);
+  border: none;
+  border-radius: 63px;
+  color: white;
+  transition: .2s;
+
+  &:before,
+  &:after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding-top: inherit;
+    padding-bottom: inherit;
+    width: 2.8em;
+    content: "\e315";
+    font-family: 'Material Icons', sans-serif;
+    font-size: 1.2em;
+    text-align: center;
+
+    transition: .2s;
+    transform-origin: 50% 60%;
+  }
+}
+
+.btn-primary-circle {
+  &:after {
+    content: "\e5e1";
+    background: white;
+    color: $lime-green;
+    border-radius: 64px;
+    box-sizing: border-box;
+    padding: 8px 0px;
+    width: 34px;
+    height: 32.5px;
+    position: absolute;
+    top: 5.5px;
+    right: 5.5px;
+    text-align: center;
+    font-size: 1em;
+    font-weight: 300;
+  }
+
+  &:hover:after {
+    -webkit-animation: none;
+    animation: none;
+  }
+}

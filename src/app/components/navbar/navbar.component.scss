@@ -1,0 +1,38 @@
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+// NAVBAR
+
+.navbar,
+.navbar-fixed {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  z-index: 2;
+  color: #fff;
+}
+
+.navbar {
+
+  mat-toolbar {
+    background-color: #fff;
+    opacity: 0.8;
+  }
+
+}
+
+.navbar-fixed {
+  position: fixed;
+
+  mat-toolbar {
+    background-color: lightgray;
+    opacity: 0.8;
+  }
+}
+
+// navbar end
