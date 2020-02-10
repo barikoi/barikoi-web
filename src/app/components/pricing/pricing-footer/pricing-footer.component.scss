@@ -1,5 +1,5 @@
 .pricing-footer {
-    background: linear-gradient(to right, #041341, #0A1D33);
+    background: transparent linear-gradient(257deg, #041341 0%, #0A1D33 100%) 0% 0% no-repeat padding-box;
     color: #fff;
     h2 {
         margin-bottom: 0;
@@ -7,5 +7,9 @@
     h1 {
         margin: 0;
         // text-align: left;
+    }
+
+    .price-footer-height {
+        height: 10em;
     }
 }
