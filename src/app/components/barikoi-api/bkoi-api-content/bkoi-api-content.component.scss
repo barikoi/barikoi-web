@@ -1,12 +1,16 @@
 .urban-benefits {
-    
-    .mat-expander {
-        width: 75%;
-        margin-top: 2.2em;
-        
+
+    .accordion {
+        padding-top: 1.8em;
     }
+
     .mat-expander-panel {
         margin: 1em 0;
+        width: 75%;
+        box-shadow: 0px 4px 16px #455B631A;
+        // margin: 1em 0;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+        border-radius: 4px;
         
     }
     .expander-title {
@@ -20,6 +24,6 @@
     }
     button {
         margin-top: 2.5em;
-        margin-right: 12%;
+        margin-right: 23.5%;
     }
 }
