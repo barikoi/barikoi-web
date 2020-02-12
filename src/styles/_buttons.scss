@@ -81,14 +81,20 @@
   -webkit-font-smoothing: antialiased;
   position: relative;
   padding: 0.8em 4.0em .8em 2.2em;
-  background: linear-gradient(to right, $neon-green, $lime-green);
+  // background: linear-gradient(to right, $neon-green, $lime-green);
+  height: 3em;
   border: none;
   border-radius: 63px;
   color: white;
   transition: .2s;
 
+  background: transparent linear-gradient(94deg, $neon-green 0%, $lime-green 97%) 0% 0% no-repeat padding-box;
+  box-shadow: 0px 4px 16px #415D6F29;
+  width: 15em;
+
   &:before,
-  &:after {
+  &:after {     content: "\e315";
+
     position: absolute;
     top: 0;
     bottom: 0;
@@ -96,7 +102,6 @@
     padding-top: inherit;
     padding-bottom: inherit;
     width: 2.8em;
-    content: "\e315";
     font-family: 'Material Icons', sans-serif;
     font-size: 1.2em;
     text-align: center;
@@ -117,8 +122,8 @@
     width: 34px;
     height: 32.5px;
     position: absolute;
-    top: 5.5px;
-    right: 5.5px;
+    top: 7px;
+    right: 8px;
     text-align: center;
     font-size: 1em;
     font-weight: 300;
