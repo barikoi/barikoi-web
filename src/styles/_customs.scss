@@ -1,7 +1,7 @@
 @import '_variables';
 
 .component {
-    margin-bottom: 100px;
+    margin-bottom: 15em;
 }
 
 .txt-bkoi-green {
@@ -47,7 +47,11 @@
   }
 
   .bkoi-home-left-content {
-    padding-left: 10em;
+    padding-left: 12em;
+  }
+
+  .bkoi-home-right-content {
+    padding-left: 5em;
   }
 
 // home
@@ -78,4 +82,20 @@
 
 .color-violet {
   background: $color-block-violet;
+}
+
+// css color block
+
+//basic grid layout
+
+.bkoi-grid-img-left {
+  padding-right: 2em;
+}
+
+.bkoi-grid-content-left {
+
+}
+
+.bkoi-grid-img-left, .bkoi-grid-content-right {
+  padding-left: 3em;
 }

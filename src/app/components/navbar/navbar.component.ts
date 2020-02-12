@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationStart, NavigationEnd, NavigationError, Event } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,12 +8,31 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  isHome: boolean;
+  isHome: boolean ;
 
   constructor( private router: Router ) { }
 
   ngOnInit() {
-    this.router.url === '/' ? this.isHome = true : this.isHome = false;
+    // this.router.url === '/' ? this.isHome = true : this.isHome = false;
+
+    this.router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationStart) {
+          // Show loading indicator
+          // this.router.url === '/' ? this.isHome = true : this.isHome = false;
+      }
+
+      if (event instanceof NavigationEnd) {
+          // Hide loading indicator
+          this.router.url === '/' ? this.isHome = true : this.isHome = false;
+      }
+
+      if (event instanceof NavigationError) {
+          // Hide loading indicator
+
+          // Present error to user
+          console.log(event.error);
+      }
+  });
   }
 
 }

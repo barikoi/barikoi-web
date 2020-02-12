@@ -59,7 +59,6 @@
   }
 }
 
-
 // Barikoi Buttons
 
 .bkoi-btn {
@@ -81,8 +80,7 @@
   display: inline-block;
   -webkit-font-smoothing: antialiased;
   position: relative;
-  padding: .8em 1.4em;
-  padding-right: 4.7em;
+  padding: 0.8em 4.0em .8em 2.2em;
   background: linear-gradient(to right, $neon-green, $lime-green);
   border: none;
   border-radius: 63px;
