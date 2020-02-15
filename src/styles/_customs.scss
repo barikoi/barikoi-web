@@ -72,6 +72,7 @@
   border: none;
 }
 
+
 .color-sky {
   background: $color-block-sky;
 }
@@ -82,6 +83,10 @@
 
 .color-violet {
   background: $color-block-violet;
+}
+
+.color-white {
+  background: $white;
 }
 
 // css color block
@@ -102,14 +107,20 @@
 
 // basic grid layout
 
+// layout-gap
 
-// accordion 
-  // .accordion-base {
-  //   height: 3.8em;
-  //   width: 75%;
-  //   box-shadow: 0px 4px 16px #455B631A;
-  //   margin: 1em 0;
-  //   // background: #FFFFFF 0% 0% no-repeat padding-box;
-  //   border-radius: px;
-  // }
-// accordion end
+.mb-1 {
+  margin-bottom: 1em;
+}
+
+.mb-2 {
+  margin-bottom: 2em;
+}
+
+.pb-1 {
+  padding-bottom: 1em;
+}
+
+.pb-2 {
+  padding-bottom: 2em;
+}
