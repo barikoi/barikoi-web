@@ -25,13 +25,19 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/leaflet/dist/images",
+                "output": "assets/"
+              }
             ],
             "styles": [
               "node_modules/normalize.css/normalize.css",
               "node_modules/animate.css/animate.css",
               "src/bkoi-theme.scss",
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/leaflet/dist/leaflet.css"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [

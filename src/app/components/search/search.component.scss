@@ -1,0 +1,123 @@
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+mat-sidenav {
+  width: 600px;
+}
+
+.example-events {
+  width: 300px;
+  height: 200px;
+  overflow: auto;
+  border: 1px solid #555;
+}
+
+
+button {
+  // background: transparent;
+  position: absolute;
+  z-index: 9999;
+}
+
+leaflet {
+    height: 100vh;
+}
+
+
+.ng-autocomplete {
+  width: 500px;
+}
+
+.bkoi-search {
+
+
+  .address-panel {
+    padding: 0 2em;
+  }
+
+  .auto-list {
+      mat-list {
+          width: 100%;
+
+      }
+  }
+  form {
+
+      margin-top: 2.5em;
+      position: relative;
+      width: 450px;
+      cursor: pointer;
+      display: block;
+      color: white;
+
+    input {
+      position: absolute;
+      text-indent: 30px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      line-height: 20px;
+      outline: 0;
+      border: 0;
+      font-size: 1.2em;
+      // background: lightcoral;
+      border-radius: 15px;
+      /* padding: 0 20px; */
+      box-shadow: 0px 5px 10px #727C8E27;
+      color: #46577C;
+
+      &:focus {
+          background: #454F6314 0% 0% no-repeat padding-box;
+          color: #454F63;
+
+          ::placeholder { /* Most modern browsers support this now. */
+              color:    #454F63;
+           }
+      }
+    }
+
+    ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+      color:    #46577C;
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+     color:    #46577C;
+     opacity:  1;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+     color:    #46577C;
+     opacity:  1;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+     color:    #46577C;
+  }
+  ::-ms-input-placeholder { /* Microsoft Edge */
+     color:    #46577C;
+  }
+  
+  ::placeholder { /* Most modern browsers support this now. */
+     color:    #46577C;
+  }
+
+    mat-icon {
+      padding: 8px 4px 0;
+      width: 50px;
+      height: 40px;
+      position: absolute;
+      top: 7px;
+      right: 6px;
+      border-radius: 15px;
+      color: #fff;
+      text-align: center;
+      font-size: 2em;
+      -webkit-transition: all 1s;
+      transition: all 1s;
+      background: linear-gradient(70deg, #67B2D9, #6AC79C);
+    }
+  }
+}

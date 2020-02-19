@@ -1,12 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Ng5SliderModule } from 'ng5-slider';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/material-module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+
 
 import { HomeComponent } from './components/home/home.component';
 import { PricingComponent } from './components/pricing/pricing.component';
@@ -30,6 +33,9 @@ import { BkoiApiContentComponent } from './components/barikoi-api/bkoi-api-conte
 import { RupantorComponent } from './components/rupantor/rupantor.component';
 import { RupantorIntroComponent } from './components/rupantor/rupantor-intro/rupantor-intro.component';
 import { RupantorImpactComponent } from './components/rupantor/rupantor-impact/rupantor-impact.component';
+import { SearchComponent } from './components/search/search.component';
+import { FormsModule } from '@angular/forms';
+import { SearchMapComponent } from './components/search/search-map/search-map.component';
 
 @NgModule({
     declarations: [
@@ -56,14 +62,20 @@ import { RupantorImpactComponent } from './components/rupantor/rupantor-impact/r
         RupantorComponent,
         RupantorIntroComponent,
         RupantorImpactComponent,
+        SearchComponent,
+        SearchMapComponent,
     ],
     imports: [
+        FormsModule,
         BrowserModule,
+        HttpClientModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         MaterialModule,
         FlexLayoutModule,
         Ng5SliderModule,
+        LeafletModule,
+        AutocompleteLibModule
     ],
     providers: [],
     bootstrap: [AppComponent],

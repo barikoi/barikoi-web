@@ -1,0 +1,95 @@
+<mat-sidenav-container class="bkoi-search">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+    <h1>Barikoi</h1>
+
+    <div fxLayout="column" fxLayoutGap="30px">
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <div class="ng-autocomplete">
+          <ng-autocomplete [data]="data" [searchKeyword]="keyword" (selected)="selectEvent($event)"
+            (inputChanged)="getServerResponse($event)" (inputFocused)="onFocused($event)" [itemTemplate]="itemTemplate"
+            (inputCleared)="searchCleared()" [notFoundTemplate]="notFoundTemplate" [debounceTime]="600"
+            [isLoading]="isLoadingResult" [minQueryLength]="2" placeHolder="Search Location.">
+          </ng-autocomplete>
+
+          <ng-template #itemTemplate let-item>
+            <a href="javascript:void(0)" (click)="showDetails(item)">
+              <div class="row">
+                <!-- <div class="col-2">
+                      <img [src]="item.Poster" style="width:50px" />
+                  </div> -->
+                <div class="col-10">
+                  <span [innerHTML]="item.new_address"></span>
+                </div>
+              </div>
+            </a>
+          </ng-template>
+
+          <ng-template #notFoundTemplate let-notFound>
+            {{ errorMsg }}
+          </ng-template>
+        </div>
+      </div>
+
+
+      <!-- <div fxLayout="column" fxLayoutAlign="center center" *ngIf="addressVisibility" class="animated fadeIn">
+          <h3>{{placeName}}</h3>
+          <p class="p-light">{{placeAddress}}, {{selectedAddress.area}}, {{selectedAddress.city}}</p>
+          <p class="p-light">Place Code : {{selectedAddress.uCode}}</p>
+      </div> -->
+
+
+      <div
+      fxLayout="row"
+      fxLayout.lt-sm="column"
+      fxLayoutAlign="center center"
+      *ngIf="addressVisibility"
+      class="address-panel"
+  >
+      <div fxLayout="column" class="address-panel">
+          <div>
+            <h3>{{placeName}}</h3>
+
+          </div>
+          <div>
+            <p class="p-light">{{placeAddress}}, {{selectedAddress.area}}, {{selectedAddress.city}}</p>
+
+          </div>
+
+          <div>
+            <p class="p-light">Place Code : {{selectedAddress.uCode}}</p>
+
+          </div>
+      </div>
+  </div>
+
+      <!-- <div fxLayout="column" fxLayoutAlign="start start">
+        <div class="auto-list">
+          <mat-list>
+            <mat-list-item>
+              <mat-icon mat-list-icon>folder</mat-icon>
+              <p mat-line>Some Address 2</p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+              <mat-icon mat-list-icon>note</mat-icon>
+              <p mat-line>Some ADdress 1</p>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </div> -->
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <!-- <button mat-button (click)="sidenav.toggle()">
+      <i class="material-icons">
+        arrow_back_ios
+      </i>
+    </button> -->
+    <button mat-raised-button (click)="sidenav.toggle()">
+      Toggle drawer
+    </button>
+
+    <app-search-map (mapClickEvent)="receiveMessage($event)"></app-search-map>
+  </mat-sidenav-content>
+</mat-sidenav-container>
