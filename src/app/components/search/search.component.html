@@ -1,4 +1,4 @@
-<mat-sidenav-container class="bkoi-search">
+<mat-sidenav-container class="bkoi-search" >
   <mat-sidenav #sidenav mode="side" [(opened)]="opened">
     <h1>Barikoi</h1>
 
@@ -45,7 +45,7 @@
       *ngIf="addressVisibility"
       class="address-panel"
   >
-      <div fxLayout="column" class="address-panel">
+      <div fxLayout="column" class="address-panel" >
           <div>
             <h3>{{placeName}}</h3>
 
@@ -62,6 +62,22 @@
       </div>
   </div>
 
+  <div
+      fxLayout="row"
+      fxLayout.lt-sm="column"
+      fxLayoutAlign="start center"
+      *ngIf="addressVisibility"
+      class=""
+  >
+      <div fxLayout="start start">
+          <div>
+            <app-search-nearby-ptypes (nearbyTypeSelectEvent)=nearbyPlaceSelectEvent($event)></app-search-nearby-ptypes>
+            <app-search-nearby-list *ngIf="nearbyList"></app-search-nearby-list>
+            
+          </div>
+      </div>
+  </div>
+
       <!-- <div fxLayout="column" fxLayoutAlign="start start">
         <div class="auto-list">
           <mat-list>
@@ -74,7 +90,7 @@
               <mat-icon mat-list-icon>note</mat-icon>
               <p mat-line>Some ADdress 1</p>
             </mat-list-item>
-          </mat-list>
+          </mat-list> 
         </div>
       </div> -->
     </div>
@@ -90,6 +106,8 @@
       Toggle drawer
     </button>
 
-    <app-search-map (mapClickEvent)="receiveMessage($event)"></app-search-map>
+    <div >
+      <app-search-map (mapClickEvent)="reverseGeoMapEvent($event)"></app-search-map>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

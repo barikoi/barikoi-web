@@ -1,10 +1,19 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    Output,
+    EventEmitter,
+    Input,
+    NgZone,
+} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataBoatService } from 'src/app/services/data-boat.service';
 import { Address } from '../../Address';
 import { Subscription } from 'rxjs';
 import { LeafletMouseEvent } from 'leaflet';
 import { DataVesselService } from 'src/app/services/data-vessel.service';
+import { BkoiCloudService } from 'src/app/services/bkoi-cloud.service';
+import { AddressRevGeo } from '../../Address-rev-geo';
 
 @Component({
     selector: 'app-search',
@@ -12,7 +21,6 @@ import { DataVesselService } from 'src/app/services/data-vessel.service';
     styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
-
     message: LeafletMouseEvent;
     keyword = 'new_address';
     opened = true;
@@ -26,45 +34,59 @@ export class SearchComponent implements OnInit {
     data: any;
     errorMsg: string;
     isLoadingResult: boolean;
+    nearbyList = false;
     addressVisibility = false;
 
     constructor(
         private http: HttpClient,
-        private dataVesselService: DataVesselService
+        private dataVesselService: DataVesselService,
+        private bkoiCloudService: BkoiCloudService,
+        private dataBoatService: DataBoatService,
+        private zone: NgZone
     ) {
-        // this.subscription = this.dataVesselService
-        //     .getData()
-        //     .subscribe(e => {
-        //         console.log(e + 'hello');
-        //         if (e) {
-        //             this.updateSelectedAddress(e);
-        //         }
-        //     });
+        // this.subscription = this.dataBoatService.getData().subscribe(e => {
+        //     if (e) {
+        //         this.reverseGeoMapEvent(e);
+        //     }
+        // });
     }
 
     ngOnInit() {}
 
-    receiveMessage($event) {
-        this.message = $event;
-        // this.updateSelectedAddress(this.message);
+    // reverse Geo Map Event
+    reverseGeoMapEvent(data: any) {
+        // this.nearbyList = false;
 
-        this.http
-        .get(
-            `https://admin.barikoi.xyz/v1/reverse/without/auth?latitude=${this.message.latlng.lat}&longitude=${this.message.latlng.lng}`
-        )
-        .subscribe((place: any) => {
-            // this.addMarker(data[0]);
-            this.selectedAddress = place[0];
-            const addressArray = this.selectedAddress.Address.split(',');
+        this.addressVisibility = true;
 
-            this.placeName = addressArray.shift();
+        this.bkoiCloudService.getReverseGeoResponse(data.latlng).subscribe(
+            (revGeoData: AddressRevGeo) => {
+                this.zone.run(() => {
+                    this.selectedAddress = revGeoData[0];
+                    const addressArray = revGeoData[0].Address.split(',');
+                    this.placeName = addressArray.shift();
+                    this.placeAddress = addressArray.toString();
+                });
+            },
+            (err) => {
+                console.error(`Something is wrong :( ${err}`);
+            },
+            () => {}
+        );
+    }
 
-            addressArray.shift();
-            this.placeAddress = addressArray.toString();
+    // nearbyPlaceSelectEvent
+    nearbyPlaceSelectEvent(data: any) {
+        this.nearbyList = true;
+        this.bkoiCloudService.getNearbyPlace(data, this.selectedAddress.latitude, this.selectedAddress.longitude).subscribe(
+            (nearbyPlaces) => {
+                console.log(nearbyPlaces);
+                this.dataBoatService.sendData(nearbyPlaces);
+                this.dataVesselService.sendData(nearbyPlaces);
+            }
+        );
+    }
 
-            this.addressVisibility = true;
-        });
-      }
 
     // Getting address id for geocoding
     showDetails(place: any) {
@@ -82,6 +104,7 @@ export class SearchComponent implements OnInit {
         this.addressVisibility = true;
     }
 
+    // Search autocomplete
     getServerResponse(event) {
         this.isLoadingResult = true;
 
@@ -98,6 +121,8 @@ export class SearchComponent implements OnInit {
                 }
 
                 this.isLoadingResult = false;
+                // this.nearbyList = false;
+
             });
     }
 
@@ -118,5 +143,4 @@ export class SearchComponent implements OnInit {
     onFocused(e) {
         // do something when input is focused
     }
-
 }

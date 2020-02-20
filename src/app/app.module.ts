@@ -36,6 +36,8 @@ import { RupantorImpactComponent } from './components/rupantor/rupantor-impact/r
 import { SearchComponent } from './components/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { SearchMapComponent } from './components/search/search-map/search-map.component';
+import { SearchNearbyListComponent } from './components/search/search-nearby-list/search-nearby-list.component';
+import { SearchNearbyPtypesComponent } from './components/search/search-nearby-ptypes/search-nearby-ptypes.component';
 
 @NgModule({
     declarations: [
@@ -64,6 +66,8 @@ import { SearchMapComponent } from './components/search/search-map/search-map.co
         RupantorImpactComponent,
         SearchComponent,
         SearchMapComponent,
+        SearchNearbyListComponent,
+        SearchNearbyPtypesComponent,
     ],
     imports: [
         FormsModule,
