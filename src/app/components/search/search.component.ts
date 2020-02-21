@@ -55,24 +55,16 @@ export class SearchComponent implements OnInit {
 
     // reverse Geo Map Event
     reverseGeoMapEvent(data: any) {
-        // this.nearbyList = false;
+        this.nearbyList = false;
 
         this.addressVisibility = true;
 
-        this.bkoiCloudService.getReverseGeoResponse(data.latlng).subscribe(
-            (revGeoData: AddressRevGeo) => {
-                this.zone.run(() => {
-                    this.selectedAddress = revGeoData[0];
-                    const addressArray = revGeoData[0].Address.split(',');
-                    this.placeName = addressArray.shift();
-                    this.placeAddress = addressArray.toString();
-                });
-            },
-            (err) => {
-                console.error(`Something is wrong :( ${err}`);
-            },
-            () => {}
-        );
+        this.zone.run(() => {
+            this.selectedAddress = data;
+            const addressArray = data.Address.split(',');
+            this.placeName = addressArray.shift();
+            this.placeAddress = addressArray.toString();
+        });
     }
 
     // nearbyPlaceSelectEvent

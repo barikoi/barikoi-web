@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, NgZone } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataVesselService } from 'src/app/services/data-vessel.service';
 import { Subscription } from 'rxjs';
@@ -14,9 +14,12 @@ import {
     LeafletMouseEvent,
 } from 'leaflet';
 
-const DEFAULT_MAKRER = 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png';
-const GREEN_MAKRER = 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png';
-const MARKER_SHADOW = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png';
+const DEFAULT_MAKRER =
+    'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png';
+const GREEN_MAKRER =
+    'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png';
+const MARKER_SHADOW =
+    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png';
 
 @Component({
     selector: 'app-search-map',
@@ -24,7 +27,6 @@ const MARKER_SHADOW = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/imag
     styleUrls: ['./search-map.component.scss'],
 })
 export class SearchMapComponent implements OnInit {
-
     @Output() mapClickEvent: EventEmitter<any> = new EventEmitter();
 
     options = {
@@ -36,14 +38,17 @@ export class SearchMapComponent implements OnInit {
         zoomControl: false,
         center: latLng(23.777176, 90.399452),
     };
+    // center = latLng(latLng(23.777176, 90.399452))
     subscription: Subscription;
     markers: Layer[] = [];
+    map: Map;
 
     constructor(
         private dataVesselService: DataVesselService,
         private dataBoatService: DataBoatService,
         // private http: HttpClient,
-        private bkoiCloudService: BkoiCloudService
+        private bkoiCloudService: BkoiCloudService,
+        private zone: NgZone
     ) {
         this.markers = [];
 
@@ -55,61 +60,58 @@ export class SearchMapComponent implements OnInit {
                     return;
                 }
                 this.addMarker(place);
-
             });
     }
 
     ngOnInit() {}
 
     onMapReady(map: Map) {
+        this.map = map;
         map.doubleClickZoom.disable();
         map.on('click', (e: LeafletMouseEvent) => {
 
-            this.mapClickEvent.emit(e);
+            const newMarker2 = marker([e.latlng.lat, e.latlng.lng], {
+                icon: icon({
+                    iconSize: [25, 41],
+                    iconAnchor: [13, 41],
+                    iconUrl: DEFAULT_MAKRER,
+                    shadowUrl: MARKER_SHADOW,
+                    popupAnchor: [0, -30]
+                }),
+            });
 
-
-            // let ponti: any;
-            // this.bkoiCloudService.getReverseGeoResponse(e.latlng).subscribe(
-            //     (data) => {
-            //         // console.log('complete');
-            //         ponti = data[0];
-
-            //         console.log(ponti);
-            //         // this.dataBoatService.sendData(ponti);
-            //     }
-            // );
+            let revGeoAddress: any;
+            this.bkoiCloudService.getReverseGeoResponse(e.latlng).subscribe(
+                (result => {
+                    revGeoAddress = result[0];
+                    this.mapClickEvent.emit(revGeoAddress);
+                    newMarker2.bindPopup(revGeoAddress.Address);
+                }),
+                (err => {
+                    console.error(`something went wrong, ${err}`);
+                }),
+                () => {
+                }
+            );
 
             if (this.markers.length > 0) {
                 this.markers = [];
             }
             // console.log(e);
 
-            const newMarker2 = marker([e.latlng.lat, e.latlng.lng], {
-                icon: icon({
-                    iconSize: [25, 41],
-                    iconAnchor: [13, 41],
-                    iconUrl:
-                        'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
-                    shadowUrl:
-                        'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                }),
-            });
 
             this.markers.push(newMarker2);
 
             // this.reverseGeo(e);
             // this.dataBoatService.sendData(e);
-
-
         });
     }
 
     sendMessage(e: LeafletMouseEvent) {
         this.mapClickEvent.emit(e);
-      }
+    }
 
     private addMarker(place) {
-        console.log(place);
         if (this.markers.length > 0) {
             this.markers = [];
         }
@@ -122,46 +124,54 @@ export class SearchMapComponent implements OnInit {
                     iconSize: [25, 41],
                     iconAnchor: [13, 41],
                     iconUrl: DEFAULT_MAKRER,
-                    shadowUrl: MARKER_SHADOW
+                    shadowUrl: MARKER_SHADOW,
+                    popupAnchor: [0, -30]
                 }),
             }
-        );
+        ).bindPopup(place.Address);
+
+        // this.zone.run( () => {
+        //     this.options.zoom = 5;
+        //     this.options.center = latLng(
+        //         parseFloat(place.latitude),
+        //         parseFloat(place.longitude)
+        //     );
+        // });
 
         this.markers.push(newMarker);
 
-        this.options.center = latLng(
-            parseFloat(place.latitude),
-            parseFloat(place.longitude)
+        this.map.setView(
+            [parseFloat(place.latitude), parseFloat(place.longitude)],
+            this.map.getZoom()
         );
     }
 
     private addMarkerMultiple(places) {
         // this.markers = [];
 
-        if( this.markers.length > 1) {
+        if (this.markers.length > 1) {
             this.markers = [];
         }
 
         // this.markers = this.addressToMarkerNearby(places);
 
-        for( let place of places) {
+        for (let place of places) {
             let df = marker(
                 [parseFloat(place.latitude), parseFloat(place.longitude)],
                 {
                     icon: icon({
                         iconSize: [25, 41],
                         iconAnchor: [13, 41],
+                        popupAnchor: [0, -30],
                         iconUrl: GREEN_MAKRER,
-                        shadowUrl: MARKER_SHADOW
+                        shadowUrl: MARKER_SHADOW,
                     }),
                 }
-            );
+            ).bindPopup(place.Address);
 
             this.markers.push(df);
         }
 
         // this.markers.push()
     }
-
-
 }
