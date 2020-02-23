@@ -72,7 +72,7 @@
       <div fxLayout="center center">
           <div>
             <app-search-nearby-ptypes (nearbyTypeSelectEvent)=nearbyPlaceSelectEvent($event)></app-search-nearby-ptypes>
-            <app-search-nearby-list *ngIf="nearbyList"></app-search-nearby-list>
+            <app-search-nearby-list *ngIf="nearbyList" ></app-search-nearby-list>
             
           </div>
       </div>
@@ -107,7 +107,7 @@
     </button>
 
     <div >
-      <app-search-map (mapClickEvent)="reverseGeoMapEvent($event)"></app-search-map>
+      <app-search-map (mapClickEvent)="reverseGeoMapEvent($event)" ></app-search-map>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

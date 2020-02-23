@@ -111,6 +111,10 @@ export class SearchMapComponent implements OnInit {
         this.mapClickEvent.emit(e);
     }
 
+    focusSelectedPlace(e: any) {
+        console.log(e);
+    }
+
     private addMarker(place) {
         if (this.markers.length > 0) {
             this.markers = [];

@@ -21,19 +21,14 @@ export class AppComponent implements OnInit {
 
             if (event instanceof NavigationEnd) {
                 // Hide loading indicator
-
-                console.log(this.router);
-
                 this.router.url === '/search'
                     ? (this.isSearch = true)
                     : (this.isSearch = false);
             }
 
             if (event instanceof NavigationError) {
-                // Hide loading indicator
-
                 // Present error to user
-                console.log(event.error);
+                console.error(event.error);
             }
         });
     }

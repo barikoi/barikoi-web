@@ -7,14 +7,14 @@
     </div>
     <div fxLayout="row" fxLayoutAlign="center center" class="pricing-slider">
         <div fxLayout="column" fxFlex="60" fxLayoutAlign="center center">
-              <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
+              <ng5-slider [(value)]="value" [options]="options" (userChange)="onSlideChange($event)"></ng5-slider>
         </div>
     </div>
 
     <div fxLayout="row" fxLayoutAlign="center center" class="slider-value">
         <div fxLayout="column" fxFlex="30" fxLayoutAlign="start start">
-            <p >Pay as you go 5000TK</p>
-            <p >Upfront 4000TK</p>
+            <p class="p-light-medium p-normal">Pay as you go <span>{{  payAsYouGoPrice }}tk</span></p>
+            <p class="p-light-medium p-normal">Upfront <span>{{ upFrontPrice }}tk</span></p>
         </div>
         <div fxLayout="column" fxFlex="30" fxLayoutAlign="end end">
             <a routerLink="">
