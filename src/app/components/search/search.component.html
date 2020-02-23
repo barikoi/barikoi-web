@@ -71,8 +71,9 @@
   >
       <div fxLayout="center center">
           <div>
-            <app-search-nearby-ptypes (nearbyTypeSelectEvent)=nearbyPlaceSelectEvent($event)></app-search-nearby-ptypes>
-            <app-search-nearby-list *ngIf="nearbyList" ></app-search-nearby-list>
+            <app-search-nearby-ptypes (nearbyTypeSelectEvent)=nearbyTypeSelectEvent($event)></app-search-nearby-ptypes>
+            <app-search-nearby-list *ngIf="nearbyList"></app-search-nearby-list>
+            <!-- <app-search-nearby-list *ngIf="nearbyList" (nearbyListClickEvent)="nearbyPlaceListSelectEvent($event)"></app-search-nearby-list> -->
             
           </div>
       </div>

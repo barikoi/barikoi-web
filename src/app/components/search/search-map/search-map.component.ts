@@ -1,4 +1,11 @@
-import { Component, OnInit, Output, EventEmitter, NgZone } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    Output,
+    EventEmitter,
+    NgZone,
+    Input,
+} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DataVesselService } from 'src/app/services/data-vessel.service';
 import { Subscription } from 'rxjs';
@@ -12,7 +19,10 @@ import {
     tileLayer,
     Map,
     LeafletMouseEvent,
+    Marker,
 } from 'leaflet';
+import { NearbyListFocusService } from 'src/app/services/nearby-list-focus.service';
+import { JsonPipe } from '@angular/common';
 
 const DEFAULT_MAKRER =
     'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png';
@@ -28,6 +38,7 @@ const MARKER_SHADOW =
 })
 export class SearchMapComponent implements OnInit {
     @Output() mapClickEvent: EventEmitter<any> = new EventEmitter();
+    @Input() userClickOnNearbyList: any;
 
     options = {
         layers: tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -40,15 +51,14 @@ export class SearchMapComponent implements OnInit {
     };
     // center = latLng(latLng(23.777176, 90.399452))
     subscription: Subscription;
-    markers: Layer[] = [];
+    nearbyListSubscription: Subscription;
+    markers: Marker[] = [];
     map: Map;
 
     constructor(
         private dataVesselService: DataVesselService,
-        private dataBoatService: DataBoatService,
-        // private http: HttpClient,
         private bkoiCloudService: BkoiCloudService,
-        private zone: NgZone
+        private nearbyListFocusService: NearbyListFocusService
     ) {
         this.markers = [];
 
@@ -61,6 +71,12 @@ export class SearchMapComponent implements OnInit {
                 }
                 this.addMarker(place);
             });
+
+        this.nearbyListSubscription = this.nearbyListFocusService
+            .getData()
+            .subscribe(place => {
+                this.focusSelectedMarker(place);
+            });
     }
 
     ngOnInit() {}
@@ -69,36 +85,33 @@ export class SearchMapComponent implements OnInit {
         this.map = map;
         map.doubleClickZoom.disable();
         map.on('click', (e: LeafletMouseEvent) => {
-
             const newMarker2 = marker([e.latlng.lat, e.latlng.lng], {
                 icon: icon({
                     iconSize: [25, 41],
                     iconAnchor: [13, 41],
                     iconUrl: DEFAULT_MAKRER,
                     shadowUrl: MARKER_SHADOW,
-                    popupAnchor: [0, -30]
+                    popupAnchor: [0, -30],
                 }),
             });
 
             let revGeoAddress: any;
             this.bkoiCloudService.getReverseGeoResponse(e.latlng).subscribe(
-                (result => {
+                result => {
                     revGeoAddress = result[0];
                     this.mapClickEvent.emit(revGeoAddress);
                     newMarker2.bindPopup(revGeoAddress.Address);
-                }),
-                (err => {
+                },
+                err => {
                     console.error(`something went wrong, ${err}`);
-                }),
-                () => {
-                }
+                },
+                () => {}
             );
 
             if (this.markers.length > 0) {
                 this.markers = [];
             }
             // console.log(e);
-
 
             this.markers.push(newMarker2);
 
@@ -111,9 +124,9 @@ export class SearchMapComponent implements OnInit {
         this.mapClickEvent.emit(e);
     }
 
-    focusSelectedPlace(e: any) {
-        console.log(e);
-    }
+    // focusSelectedPlace(e: any) {
+    //     console.log(e + 'ye');
+    // }
 
     private addMarker(place) {
         if (this.markers.length > 0) {
@@ -129,7 +142,7 @@ export class SearchMapComponent implements OnInit {
                     iconAnchor: [13, 41],
                     iconUrl: DEFAULT_MAKRER,
                     shadowUrl: MARKER_SHADOW,
-                    popupAnchor: [0, -30]
+                    popupAnchor: [0, -30],
                 }),
             }
         ).bindPopup(place.Address);
@@ -173,9 +186,28 @@ export class SearchMapComponent implements OnInit {
                 }
             ).bindPopup(place.Address);
 
+            df.openPopup()
+
             this.markers.push(df);
         }
 
         // this.markers.push()
+    }
+
+    private focusSelectedMarker(place) {
+
+
+        this.markers.forEach((element: any) => {
+
+            if(element._latlng.lat === parseFloat(place.latitude) && element._latlng.lng === parseFloat(place.longitude)) {
+                this.map.setView(
+                    [parseFloat(place.latitude), parseFloat(place.longitude)],
+                    this.map.getZoom()
+                );
+                element.openPopup();
+
+            }
+        });
+
     }
 }

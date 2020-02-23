@@ -14,6 +14,7 @@ import { LeafletMouseEvent } from 'leaflet';
 import { DataVesselService } from 'src/app/services/data-vessel.service';
 import { BkoiCloudService } from 'src/app/services/bkoi-cloud.service';
 import { AddressRevGeo } from '../../Address-rev-geo';
+// import { nearbyListClickEvent } from './search-nearby-list/search-nearby-list.component';
 
 @Component({
     selector: 'app-search',
@@ -21,6 +22,11 @@ import { AddressRevGeo } from '../../Address-rev-geo';
     styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
+    public nearbyPlacesListClickEvent: Event;
+    // @Output() nearbyListSelect: EventEmitter<any> = new EventEmitter();
+    @Output() userClickOnNearbyList: EventEmitter<any> = new EventEmitter();
+
+
     message: LeafletMouseEvent;
     keyword = 'new_address';
     opened = true;
@@ -36,6 +42,10 @@ export class SearchComponent implements OnInit {
     isLoadingResult: boolean;
     nearbyList = false;
     addressVisibility = false;
+
+    nearbyListEvent(event: Event) {
+        this.nearbyPlacesListClickEvent = event;
+    }
 
     constructor(
         private http: HttpClient,
@@ -67,13 +77,25 @@ export class SearchComponent implements OnInit {
         });
     }
 
-    // nearbyPlaceSelectEvent
-    nearbyPlaceSelectEvent(data: any) {
+    // nearby place LIST select event
+    // nearbyPlaceListSelectEvent(event: any) {
+    //     // this.nearbyListSelect.emit(event);
+    //     console.log('from parent' + event);
+    // }
+
+    // //  Nearby Place List click event
+    // emitNearbyListClick(event: any) {
+    //   this.userClickOnNearbyList.emit(event);
+    // }
+
+    // nearby Type SelectEvent
+    nearbyTypeSelectEvent(data: any) {
         this.nearbyList = true;
         this.bkoiCloudService.getNearbyPlace(data, this.selectedAddress.latitude, this.selectedAddress.longitude).subscribe(
             (nearbyPlaces) => {
-                console.log(nearbyPlaces);
+
                 this.dataBoatService.sendData(nearbyPlaces);
+
                 this.dataVesselService.sendData(nearbyPlaces);
             }
         );
