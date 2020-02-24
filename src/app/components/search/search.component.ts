@@ -14,6 +14,7 @@ import { LeafletMouseEvent } from 'leaflet';
 import { DataVesselService } from 'src/app/services/data-vessel.service';
 import { BkoiCloudService } from 'src/app/services/bkoi-cloud.service';
 import { AddressRevGeo } from '../../Address-rev-geo';
+import { AutocompleteAddress } from '../../autocomplete-address';
 // import { nearbyListClickEvent } from './search-nearby-list/search-nearby-list.component';
 
 @Component({
@@ -26,9 +27,8 @@ export class SearchComponent implements OnInit {
     // @Output() nearbyListSelect: EventEmitter<any> = new EventEmitter();
     @Output() userClickOnNearbyList: EventEmitter<any> = new EventEmitter();
 
-
     message: LeafletMouseEvent;
-    keyword = 'new_address';
+    keyword = 'place_name';
     opened = true;
 
     subscription: Subscription;
@@ -37,7 +37,7 @@ export class SearchComponent implements OnInit {
     placeName: string;
     placeAddress: string;
 
-    data: any;
+    searchResult: [];
     errorMsg: string;
     isLoadingResult: boolean;
     nearbyList = false;
@@ -91,16 +91,18 @@ export class SearchComponent implements OnInit {
     // nearby Type SelectEvent
     nearbyTypeSelectEvent(data: any) {
         this.nearbyList = true;
-        this.bkoiCloudService.getNearbyPlace(data, this.selectedAddress.latitude, this.selectedAddress.longitude).subscribe(
-            (nearbyPlaces) => {
-
+        this.bkoiCloudService
+            .getNearbyPlace(
+                data,
+                this.selectedAddress.latitude,
+                this.selectedAddress.longitude
+            )
+            .subscribe(nearbyPlaces => {
                 this.dataBoatService.sendData(nearbyPlaces);
 
                 this.dataVesselService.sendData(nearbyPlaces);
-            }
-        );
+            });
     }
-
 
     // Getting address id for geocoding
     showDetails(place: any) {
@@ -108,9 +110,11 @@ export class SearchComponent implements OnInit {
         this.selectedAddress = place;
         const addressArray = place.new_address.split(',');
 
-        place.place_name
-            ? (this.placeName = place.place_name)
-            : (this.placeName = addressArray.shift());
+        // place.place_name
+        //     ? (this.placeName = place.place_name)
+        //     : (this.placeName = addressArray.shift());
+        this.placeName = '';
+        this.placeName = place.place_name;
 
         addressArray.shift();
         this.placeAddress = addressArray.toString();
@@ -128,21 +132,27 @@ export class SearchComponent implements OnInit {
             })
             .subscribe((data: { sources: {}; places: [] }) => {
                 if (data.places === undefined) {
-                    this.data = [];
+                    this.searchResult = [];
                     this.errorMsg = data['Error'];
                 } else {
-                    this.data = data.places;
+
+                    data.places.forEach((addr: AutocompleteAddress) => {
+                        const ab = addr.new_address.split(',');
+                        ab.shift();
+                        addr.cropped_address = ab.toString();
+                    });
+
+                    this.searchResult = data.places;
                 }
 
                 this.isLoadingResult = false;
                 // this.nearbyList = false;
-
             });
     }
 
     searchCleared() {
         console.log('searchCleared');
-        this.data = [];
+        this.searchResult = [];
     }
 
     selectEvent(item) {

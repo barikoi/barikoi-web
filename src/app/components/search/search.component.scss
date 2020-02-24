@@ -18,6 +18,22 @@ mat-sidenav {
 }
 
 
+.bkoi-logo {
+  padding-left: 1em;
+}
+
+.bari,
+.koi {
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  letter-spacing: 0;
+}
+
+.koi {
+  color: #2DDBAC;
+}
+
 button {
   // background: transparent;
   position: absolute;
@@ -31,6 +47,15 @@ leaflet {
 
 .ng-autocomplete {
   width: 500px;
+
+  .autocomplete-container .suggestions-container {
+    box-shadow: none !important;
+    background: purple !important;
+
+    ul {
+      max-height: 500px !important;
+    }
+  }
 }
 
 .bkoi-search {
@@ -38,6 +63,33 @@ leaflet {
 
   .address-panel {
     padding: 0 2em;
+
+    .address-details {
+      max-width: 600px;
+
+      .addr-type-ucode {
+        width: 100%;
+      }
+      p {
+        margin: 6px 0;
+      }
+      h4 {
+        color: #2A2E43;
+        font-size: 30px;
+        font-weight: 600;
+        margin-bottom: .2em;
+      }
+      .sub-address {
+        color: #181E2C;
+      }
+      .address-ptype {
+        color: #32775B;
+      }
+      .address-ucoe {
+        color: #363A41;
+        opacity: 65%;
+      }
+    }
   }
 
   .auto-list {
