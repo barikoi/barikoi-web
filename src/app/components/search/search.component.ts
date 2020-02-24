@@ -77,17 +77,6 @@ export class SearchComponent implements OnInit {
         });
     }
 
-    // nearby place LIST select event
-    // nearbyPlaceListSelectEvent(event: any) {
-    //     // this.nearbyListSelect.emit(event);
-    //     console.log('from parent' + event);
-    // }
-
-    // //  Nearby Place List click event
-    // emitNearbyListClick(event: any) {
-    //   this.userClickOnNearbyList.emit(event);
-    // }
-
     // nearby Type SelectEvent
     nearbyTypeSelectEvent(data: any) {
         this.nearbyList = true;
@@ -113,8 +102,8 @@ export class SearchComponent implements OnInit {
         // place.place_name
         //     ? (this.placeName = place.place_name)
         //     : (this.placeName = addressArray.shift());
-        this.placeName = '';
-        this.placeName = place.place_name;
+        // this.placeName = null;
+        this.placeName = place.place_name_2;
 
         addressArray.shift();
         this.placeAddress = addressArray.toString();
@@ -140,6 +129,7 @@ export class SearchComponent implements OnInit {
                         const ab = addr.new_address.split(',');
                         ab.shift();
                         addr.cropped_address = ab.toString();
+                        addr.place_name_2 = addr.place_name;
                     });
 
                     this.searchResult = data.places;

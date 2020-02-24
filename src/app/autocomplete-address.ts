@@ -7,6 +7,7 @@ export interface AutocompleteAddress {
     new_address: string;
     alternate_address: string;
     cropped_address: string; // custom property for showing address without place name or start of the address
+    place_name_2: string;
     address_bn: any;
     city: string;
     area: string;
