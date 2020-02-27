@@ -1,25 +1,27 @@
-<div class="pricing-calculator component" >
-
+<div class="pricing-calculator component">
     <div fxLayout="row" fxLayout.lt-sm="column">
-  
-  
-      <div  fxFlex="100" class="bkoi-app" >
-  
-        <div fxLayout="column" fxLayoutAlign="space-evenly center">
-  
+        <div fxLayout="column" fxFlex="100" fxLayoutAlign="space-evenly center">
             <h1>Pay for what you use</h1>
             <p>Barikoi Price Calculator</p>
-
-                    <ng5-slider [(value)]="value" [options]="options"></ng5-slider>
-
-                    <a routerLink="">
-                        <button class="bkoi-btn bkoi-btn-primary btn-primary-circle" >CONTACT SALES</button>
-        
-                    </a>
-  
         </div>
-  
-      </div>
     </div>
-  </div>
-  
+    <div fxLayout="row" fxLayoutAlign="center center" class="pricing-slider">
+        <div fxLayout="column" fxFlex="60" fxLayoutAlign="center center">
+              <ng5-slider [(value)]="value" [options]="options" (userChange)="onSlideChange($event)"></ng5-slider>
+        </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center center" class="slider-value">
+        <div fxLayout="column" fxFlex="30" fxLayoutAlign="start start">
+            <p class="p-light-medium p-normal">Pay as you go <span>{{  payAsYouGoPrice }}tk</span></p>
+            <p class="p-light-medium p-normal">Upfront <span>{{ upFrontPrice }}tk</span></p>
+        </div>
+        <div fxLayout="column" fxFlex="30" fxLayoutAlign="end end">
+            <a routerLink="">
+                <button class="bkoi-btn bkoi-btn-primary btn-primary-circle">
+                    CONTACT SALES
+                </button>
+            </a>
+        </div>
+    </div>
+</div>

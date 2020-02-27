@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeNavComponent } from './home-nav.component';
+import { UrbanDefinitionComponent } from './urban-definition.component';
 
-describe('HomeNavComponent', () => {
-  let component: HomeNavComponent;
-  let fixture: ComponentFixture<HomeNavComponent>;
+describe('UrbanDefinitionComponent', () => {
+  let component: UrbanDefinitionComponent;
+  let fixture: ComponentFixture<UrbanDefinitionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeNavComponent ]
+      declarations: [ UrbanDefinitionComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeNavComponent);
+    fixture = TestBed.createComponent(UrbanDefinitionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

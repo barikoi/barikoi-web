@@ -1,0 +1,361 @@
+<div class="rupantor-intro component">
+    <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start start">
+        
+        
+        <div
+            fxFlex.lt-sm="100"
+            fxFlex="50"
+            fxLayout.lt-sm="row"
+            fxLayoutAlign="start start"
+            class="bkoi-app"
+        >
+            <div
+                class="step-1"
+                id="stp1"
+                [ngClass]="[story1 ? 'show-flex-column' : 'hide-flex-column']"
+            >
+                <div fxLayout="column">
+                    <div class="box-1">
+                        <div class="content">
+                            <div fxLayout="row" fxLayoutGap="20px">
+                                <div fxFlex="10" class="block">
+                                    <div
+                                        class="color-block-rupantor color-white"
+                                    ></div>
+                                    <div class="vl"></div>
+                                </div>
+
+                                <div fxLayoutGap="20px">
+                                    <div>
+                                        <p class="p-light-small ">
+                                            Pickup Location
+                                        </p>
+                                    </div>
+                                    <p class="p-medium ">
+                                        H 547, Block G, Bashundhara, <br />
+                                        Dhaka
+                                    </p>
+                                    <div class="progress-bar animated" [ngClass]="[ progressBar ? 'fadeOut' : '']">
+                                        <span class="bar">
+                                            <span
+                                                class="progress progress-5"
+                                            ></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-2">
+                        <div class="content">
+                            <div fxLayout="row" fxLayoutGap="20px">
+                                <div fxFlex="10" class="block">
+                                    <div
+                                        class="color-block-rupantor color-white"
+                                    ></div>
+                                    <div class="vl"></div>
+                                </div>
+
+                                <div fxLayoutGap="20px">
+                                    <div>
+                                        <p class="p-light-small ">
+                                            Delivery Address
+                                        </p>
+                                    </div>
+                                    <p class="p-medium ">
+                                        34D, Mirpur, Pallabi, <br />
+                                        Dhaka
+                                    </p>
+
+                                    <div class="progress-bar animated" [ngClass]="[ progressBar ? 'fadeOut' : '']">
+                                        <span class="bar">
+                                            <span
+                                                class="progress progress-5"
+                                            ></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-3">
+                        <div class="content">
+                            <div fxLayout="row" fxLayoutGap="20px">
+                                <div fxFlex="10" class="block">
+                                    <div
+                                        class="color-block-rupantor color-white"
+                                    ></div>
+                                    <div class="vl"></div>
+                                </div>
+
+                                <div fxLayoutGap="20px">
+                                    <div>
+                                        <p class="p-light-small ">
+                                            Destination
+                                        </p>
+                                    </div>
+                                    <p class="p-medium ">
+                                        264, R19, Dhanmondi
+                                    </p>
+
+                                    <div class="progress-bar animated" [ngClass]="[ progressBar ? 'fadeOut' : '']">
+                                        <span class="bar">
+                                            <span
+                                                class="progress progress-5"
+                                            ></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="step-2"
+                id="stp1"
+                [ngClass]="[story2 ? 'show-flex-column' : 'hide-flex-column']"
+            >
+                <div fxLayout="column">
+                    <div class="box-1">
+                        <div class="content">
+                            <div fxLayout="row" fxLayoutGap="20px">
+                                <div fxFlex="10" class="block">
+                                    <div
+                                        class="color-block-rupantor color-white"
+                                    ></div>
+                                    <div class="vl"></div>
+                                </div>
+
+                                <div fxLayoutGap="20px">
+                                    <div>
+                                        <p class="p-light-small ">
+                                            Pickup Location
+                                        </p>
+                                    </div>
+                                    <p class="p-medium fadeIn animated">
+                                        H 547, Road 11, Block G, <br />
+                                        Bashundhara
+                                    </p>
+                                    <div class="progress-bar animated" [ngClass]="[ progressBar ? 'fadeOut' : '']">
+                                        <span class="bar">
+                                            <span
+                                                class="progress progress-5-50"
+                                            ></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-2">
+                        <div class="content">
+                            <div fxLayout="row" fxLayoutGap="20px">
+                                <div fxFlex="10" class="block">
+                                    <div
+                                        class="color-block-rupantor color-white"
+                                    ></div>
+                                    <div class="vl"></div>
+                                </div>
+
+                                <div fxLayoutGap="20px">
+                                    <div>
+                                        <p class="p-light-small ">
+                                            Delivery Address
+                                        </p>
+                                    </div>
+                                    <p class="p-medium fadeIn animated">
+                                        House 34D, MIrpur 11.5, <br />
+                                        Pallabi, Dhaka
+                                    </p>
+
+                                    <div class="progress-bar animated" [ngClass]="[ progressBar ? 'fadeOut' : '']">
+                                        <span class="bar">
+                                            <span
+                                                class="progress progress-5-30"
+                                            ></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-3">
+                        <div class="content">
+                            <div fxLayout="row" fxLayoutGap="20px">
+                                <div fxFlex="10" class="block">
+                                    <div
+                                        class="color-block-rupantor color-white"
+                                    ></div>
+                                    <div class="vl"></div>
+                                </div>
+
+                                <div fxLayoutGap="20px">
+                                    <div>
+                                        <p class="p-light-small ">
+                                            Destination
+                                        </p>
+                                    </div>
+                                    <p class="p-medium fadeIn animated">
+                                        H264, Road 19, Dhanmondi
+                                    </p>
+
+                                    <div class="progress-bar animated" [ngClass]="[ progressBar ? 'fadeOut' : '']">
+                                        <span class="bar">
+                                            <span
+                                                class="progress progress-5-80"
+                                            ></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="step-3"
+                [ngClass]="[story3 ? 'show-flex-column' : 'hide-flex-column']"
+            >
+                <div fxLayout="column">
+                    <div class="box-1"  [ngClass]="[ boxFinal ? 'box1-final' : '']">
+                        <div class="content">
+                            <div fxLayout="row" fxLayoutGap="20px">
+                                <div fxFlex="10" class="block">
+                                    <div
+                                        class="color-block-rupantor color-white"
+                                    ></div>
+                                    <div class="vl"></div>
+                                </div>
+
+                                <div fxLayoutGap="20px">
+                                    <div>
+                                        <p class="p-light-small ">
+                                            Pickup Point
+                                        </p>
+                                    </div>
+                                    <p class="p-medium fadeIn animated">
+                                        House 547, Road 11, Block G, <br />
+                                        Bashundhara R/A, Dhaka
+                                    </p>
+                                    <div class="progress-bar animated" [ngClass]="[ progressBar ? 'fadeOut' : '']">
+                                        <span class="bar">
+                                            <span
+                                                class="progress progress-50-100"
+                                            ></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-2" [ngClass]="[ boxFinal ? 'box2-final' : '']">
+                        <div class="content">
+                            <div fxLayout="row" fxLayoutGap="20px">
+                                <div fxFlex="10" class="block">
+                                    <div
+                                        class="color-block-rupantor color-white"
+                                    ></div>
+                                    <div class="vl"></div>
+                                </div>
+
+                                <div fxLayoutGap="20px">
+                                    <div>
+                                        <p class="p-light-small ">
+                                            Delivery Address
+                                        </p>
+                                    </div>
+                                    <p class="p-medium fadeIn animated">
+                                        House 547, Road 11, Block G, <br />
+                                        Bashundhara R/A, Dhaka
+                                    </p>
+
+                                    <div class="progress-bar animated" [ngClass]="[ progressBar ? 'fadeOut' : '']">
+                                        <span class="bar">
+                                            <span
+                                                class="progress progress-30-100"
+                                            ></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-3" [ngClass]="[ boxFinal ? 'box3-final' : '']">
+                        <div class="content">
+                            <div fxLayout="row" fxLayoutGap="20px">
+                                <div fxFlex="10" class="block">
+                                    <div
+                                        class="color-block-rupantor color-white"
+                                    ></div>
+                                    <div class="vl"></div>
+                                </div>
+
+                                <div fxLayoutGap="20px">
+                                    <div>
+                                        <p class="p-light-small ">
+                                            Destination
+                                        </p>
+                                    </div>
+                                    <p class="p-medium fadeIn animated">
+                                        House 547, Road 11, Block G, <br />
+                                        Bashundhara R/A, Dhaka
+                                    </p>
+
+                                    <div class="progress-bar animated" [ngClass]="[ progressBar ? 'fadeOut' : '']">
+                                        <span class="bar">
+                                            <span
+                                                class="progress progress-80-100"
+                                            ></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div
+            fxFlex.lt-sm="100"
+            fxFlex="50"
+            fxLayout="column"
+            fxLayoutAlign="start start"
+        >
+            <div class="bkoi-grid-content-right brief">
+                <h1 >
+                    Rupantor
+                    <span class="by-bkoi">
+                        by Barikoi
+                    </span>
+                </h1>
+
+                <p class="mb-1">
+                    First of its kind API that turns your bad <br />
+                    address into good ones !
+                </p>
+
+                <p class="p-light-default animated fadeInRight animatedText">
+                    Our rich, error-free database is a great source for <br />
+                    the growing logistic industry in our country.
+                </p>
+
+                <div fxLayout="row" fxLayoutAlign="end start">
+                    <button
+                        routerLink=""
+                        class="bkoi-btn bkoi-btn-primary btn-primary-circle animatedBtn animated fadeInRight faster"
+                    >
+                        CONTACT SALES
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

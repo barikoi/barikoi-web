@@ -1,7 +1,7 @@
 @import '_variables';
 
 .component {
-    margin-bottom: 100px;
+    margin-bottom: 15em;
 }
 
 .txt-bkoi-green {
@@ -47,7 +47,11 @@
   }
 
   .bkoi-home-left-content {
-    padding-left: 10em;
+    padding-left: 12em;
+  }
+
+  .bkoi-home-right-content {
+    padding-left: 5em;
   }
 
 // home
@@ -68,6 +72,7 @@
   border: none;
 }
 
+
 .color-sky {
   background: $color-block-sky;
 }
@@ -78,4 +83,44 @@
 
 .color-violet {
   background: $color-block-violet;
+}
+
+.color-white {
+  background: $white;
+}
+
+// css color block
+
+//basic grid layout
+
+.bkoi-grid-img-left {
+  padding-right: 2em;
+}
+
+.bkoi-grid-content-left {
+
+}
+
+.bkoi-grid-img-left, .bkoi-grid-content-right {
+  padding-left: 3em;
+}
+
+// basic grid layout
+
+// layout-gap
+
+.mb-1 {
+  margin-bottom: 1em;
+}
+
+.mb-2 {
+  margin-bottom: 2em;
+}
+
+.pb-1 {
+  padding-bottom: 1em;
+}
+
+.pb-2 {
+  padding-bottom: 2em;
 }

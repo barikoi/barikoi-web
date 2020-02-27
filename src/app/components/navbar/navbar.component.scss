@@ -1,38 +1,101 @@
-.example-icon {
-  padding: 0 14px;
-}
+@import '_variables';
 
-.example-spacer {
-  flex: 1 1 auto;
-}
+.bkoi-navbar {
 
-// NAVBAR
-
-.navbar,
-.navbar-fixed {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  z-index: 2;
-  color: #fff;
-}
-
-.navbar {
-
-  mat-toolbar {
-    background-color: #fff;
-    opacity: 0.8;
+  .bkoi-logo {
+    cursor: pointer;
+    &:focus, &:active {
+      outline: none;
+    }
+  }
+  // font-family: 'Roboto', sans-serif;  
+  .example-icon {
+    padding: 0 14px;
   }
 
-}
+  .example-spacer {
+    flex: 1 1 auto;
+  }
 
-.navbar-fixed {
-  position: fixed;
+  // NAVBAR
 
-  mat-toolbar {
-    background-color: lightgray;
-    opacity: 0.8;
+  .bari,
+  .koi {
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    letter-spacing: 0;
+  }
+
+  .koi {
+    color: #2DDBAC;
+  }
+
+  .mat-toolbar-row,
+  .mat-toolbar-single-row {
+    font-weight: 400;
+    padding: 0 100px;
+    letter-spacing: 0.1em;
+  }
+
+  .mat-button,
+  .mat-button-item {
+    letter-spacing: 0.1em;
+
+  }
+
+  .navbar,
+  .navbar-fixed {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    z-index: 2;
+    font-weight: 400;
+
+    // color: #fff;
+    mat-toolbar {
+      // background-color: #fff;
+      opacity: 0.8;
+      // background: #ffffff;
+    }
+
+    .mat-button {
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+  }
+
+  .navbar {
+    background: #ffffff;
+    position: relative;
+    color: $navbar-font-color;
+    box-shadow: 0px 3px 46px #00000008;
+    margin-bottom: 8em;
+
+    .bari {
+      color: #314464;
+    }
+
+    .mat-toolbar-row,
+    .mat-toolbar-single-row {
+      height: 75px;
+    }
+  }
+
+  .navbar-fixed {
+    position: fixed;
+    background: $navbar-background-home 0% 0% no-repeat padding-box;
+    color: #ffffff;
+    opacity: 85%;
+    .bari {
+      color: #ffffff;
+    }
+
+    .mat-toolbar-row,
+    .mat-toolbar-single-row {
+      height: 70px;
+    }
+
+    // navbar end
   }
 }
-
-// navbar end

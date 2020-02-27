@@ -1,0 +1,126 @@
+<mat-sidenav-container class="bkoi-search">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+        <h1 routerLink="/">
+            <span class="bari bkoi-logo">Bari<span class="koi">koi</span></span>
+        </h1>
+
+        <div fxLayout="column" fxLayoutGap="30px">
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <div class="ng-autocomplete">
+                    <div>
+                        <ng-autocomplete
+                            [data]="searchResult"
+                            [searchKeyword]="keyword"
+                            (selected)="selectEvent($event)"
+                            (inputChanged)="getServerResponse($event)"
+                            (inputFocused)="onFocused($event)"
+                            [itemTemplate]="itemTemplate"
+                            (inputCleared)="searchCleared()"
+                            [notFoundTemplate]="notFoundTemplate"
+                            [debounceTime]="500"
+                            [isLoading]="isLoadingResult"
+                            [minQueryLength]="2"
+                            placeHolder="Search Location."
+                        >
+                        </ng-autocomplete>
+                    </div>
+                </div>
+            </div>
+
+            <div fxLayout="column">
+                <div class="autocomplete-suggestion">
+                    <ng-template #itemTemplate let-item>
+                        <a
+                            href="javascript:void(0)"
+                            (click)="showDetails(item)"
+                        >
+                            <div fxLayout="row">
+                                <div fxFlex="10">
+                                    <!-- <img [src]="item.Poster" style="width:50px" /> -->
+                                    <!-- <mat-icon svgIcon="thumbs-up" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon> -->
+                                    <i class="material-icons">
+                                        place
+                                    </i>
+                                </div>
+                                <div>
+                                    <span [innerHTML]="item.place_name"></span>
+                                    <!-- <div > -->
+                                    <p
+                                        [innerHTML]="item.cropped_address"
+                                        class="p-light-smaller search-sub-address"
+                                    ></p>
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                        </a>
+                    </ng-template>
+
+                    <ng-template #notFoundTemplate let-notFound>
+                        {{ errorMsg }}
+                    </ng-template>
+                </div>
+            </div>
+
+            <!--  Address Details -->
+            <div
+                fxLayout="column"
+                fxLayout.lt-sm="column"
+                fxLayoutAlign="center center"
+                *ngIf="addressVisibility"
+                class="address-panel"
+            >
+                <div fxLayout="column" class="address-details" fxLayoutAlign="start center">
+                    <div>
+                        <h4>{{ placeName }}</h4>
+                        <p class="p-light-small sub-address">
+                            {{ placeAddress }}
+                        </p>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutGap="20px" class="addr-type-ucode">
+                        <div fxLayoutAlign="start center">
+                            <p class="p-light-smaller address-ptype">
+                                {{ selectedAddress.pType }}
+                            </p>
+                        </div>
+                        <div fxLayoutAlign="end center">
+                            <p class="p-light-smaller address-ucode">
+                                Place Code : {{ selectedAddress.uCode }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nearby List  -->
+
+                <div fxLayout="column">
+                    <div>
+                        <app-search-nearby-ptypes
+                            (nearbyTypeSelectEvent)="
+                                nearbyTypeSelectEvent($event)
+                            "
+                        ></app-search-nearby-ptypes>
+                    </div>
+                    <div>
+                        <app-search-nearby-list
+                            *ngIf="nearbyList"
+                        ></app-search-nearby-list>
+                    </div>
+                    <!-- <app-search-nearby-list *ngIf="nearbyList" (nearbyListClickEvent)="nearbyPlaceListSelectEvent($event)"></app-search-nearby-list> -->
+                </div>
+            </div>
+        </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <button mat-raised-button (click)="sidenav.toggle()">
+            Toggle drawer
+        </button>
+
+        <div>
+            <app-search-map
+                (mapClickEvent)="reverseGeoMapEvent($event)"
+            ></app-search-map>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,4 +1,4 @@
-h1, h2, h3, h3 {
+h1, h2, h3, h3, h4 {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -8,7 +8,7 @@ h2, h3, h3 {
 
 // header
 h1 {
-    font-size: 40px;
+    font-size: 45px;
     font-weight: 700;
     opacity: 90%;
     // line-height: 80;
@@ -16,29 +16,29 @@ h1 {
 
 // subheader
 h2 {
-    font-size: 32px;
+    font-size: 35px;
     font-weight: 400;
 }
 
 h3 {
-    font-size: 32px;
+    font-size: 35px;
     font-weight: 300;
 }
 
 h4 {
-    font-size: 32px;
+    font-size: 35px;
     font-weight: 400;
 }
 
-p, a, small, legend {
+p, a, small {
     font-family: 'Rubik', sans-serif;
 }
 
 // body text
 p {
-    font-size: 20px;
+    font-size: 22px;
     // font: 32px/44px;
-    line-height: 1.3;
+    line-height: 1.4;
     // font-weight: 400;
 }
 
@@ -55,12 +55,29 @@ p {
     font-size: 18px;
 }
 
+.p-light-medium {
+    font-size: 24px;
+}
+
+.p-normal {
+    font-weight: 400;
+}
+
+.p-medium {
+    font-weight: 500;
+}
+
 p, small {
     margin: 10px 0;
 }
 
 legend {
     margin: 10px 0;
+}
+
+.legend-medium {
+    font-size: 18px;
+    font-weight: 500;
 }
 
 a {
@@ -75,10 +92,20 @@ small {
 }
 
 legend {
+    font-family: "Roboto", sans-serif;
     font-size: 22px;
     font-weight: 500;
 }
 
 .text-center {
     text-align: center;
+}
+
+.op-90 {
+    opacity: 90%;
+    margin-bottom: 0;
+}
+
+.op-80 {
+    opacity: 80%;
 }
