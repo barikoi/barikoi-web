@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit {
     ngOnInit() {
     }
 
-    private ddd () {
+    private ddd() {
       this.router.events.subscribe((event: Event) => {
         if (event instanceof NavigationStart) {
             // Show loading indicator

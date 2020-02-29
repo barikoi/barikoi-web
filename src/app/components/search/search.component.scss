@@ -20,6 +20,15 @@ mat-sidenav {
 
 .bkoi-logo {
   padding-left: 1em;
+  &:focus, &:active {
+    outline: none;
+  }
+}
+.barkoi-logo-h1 {
+  cursor: pointer;
+  &:focus, &:active {
+    outline: none;
+  }
 }
 
 .bari,

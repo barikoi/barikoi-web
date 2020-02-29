@@ -15,9 +15,9 @@
             <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
           </mat-form-field>
         </p> -->
-        <div class="bkoi-search">
-          <form action="">
-            <input type="search" placeholder="Search a location">
+        <div class="bkoi-search" routerLink="/search">
+          <form  (click)="gotosearch()">
+            <Button >Search a location</Button>
             <mat-icon matSuffix>search</mat-icon>
           </form>
         </div>
