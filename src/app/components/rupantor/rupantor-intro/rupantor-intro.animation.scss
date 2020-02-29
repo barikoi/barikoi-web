@@ -113,11 +113,6 @@ $bar-bg: rgba(0,0,0,0.075);
   // animation-delay: .1s;
 }
 
-// .step-1:visited {
-//     opacity: 0;
-  
-// }
-
 .step-3 {
   animation-name: stp3;
   // animation-delay: .1s;
@@ -285,13 +280,3 @@ $bar-bg: rgba(0,0,0,0.075);
 .progress-80 {
     width: 80%;
 }
-
-// Vertical Centering ==============================
-// You don't need this to make it work on your site.
-// .progress-bar {
-//   left: 50%;
-//   max-width: 50%;
-//   position: absolute;
-//   top: 50%;
-//   transform: translate3d(-50%,-50%,0);
-// }

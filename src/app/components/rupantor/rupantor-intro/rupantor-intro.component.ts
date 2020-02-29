@@ -39,23 +39,23 @@ export class RupantorIntroComponent implements OnInit {
       this.story1 = false;
       this.story2 = true;
 
-    }, 4000);
+    }, 2000);
     setTimeout( () => {
       this.story2 = false;
       this.story3 = true;
-    }, 8000);
+    }, 4000);
 
     setTimeout( () => {
 
 
       this.boxFinal = true;
-    }, 9000);
+    }, 6000);
 
     setTimeout( () => {
 
 
       this.progressBar = true;
-    }, 11000);
+    }, 8500);
 
     // setTimeout( () => {
     //   // document.querySelector('#stp1').style.visib

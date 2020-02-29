@@ -1,7 +1,7 @@
 <div class="rupantor-intro component">
     <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start start">
         
-        
+        <!-- animation content  -->
         <div
             fxFlex.lt-sm="100"
             fxFlex="50"
@@ -9,6 +9,8 @@
             fxLayoutAlign="start start"
             class="bkoi-app"
         >
+
+        <!-- first steps of the animations content -->
             <div
                 class="step-1"
                 id="stp1"
@@ -46,6 +48,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="box-2">
                         <div class="content">
                             <div fxLayout="row" fxLayoutGap="20px">
@@ -113,6 +116,7 @@
                 </div>
             </div>
 
+            <!-- second steps of the animation content  -->
             <div
                 class="step-2"
                 id="stp1"
@@ -217,6 +221,7 @@
                 </div>
             </div>
 
+            <!-- last steps of the animation  -->
             <div
                 class="step-3"
                 [ngClass]="[story3 ? 'show-flex-column' : 'hide-flex-column']"
