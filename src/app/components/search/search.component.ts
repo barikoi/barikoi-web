@@ -25,7 +25,7 @@ import { AutocompleteAddress } from '../../autocomplete-address';
 export class SearchComponent implements OnInit {
     public nearbyPlacesListClickEvent: Event;
     // @Output() nearbyListSelect: EventEmitter<any> = new EventEmitter();
-    @Output() userClickOnNearbyList: EventEmitter<any> = new EventEmitter();
+    // @Output() userClickOnNearbyList: EventEmitter<any> = new EventEmitter();
 
     message: LeafletMouseEvent;
     keyword = 'place_name';
@@ -69,6 +69,7 @@ export class SearchComponent implements OnInit {
 
         this.addressVisibility = true;
 
+        // using angular's Zone.js to detect change
         this.zone.run(() => {
             this.selectedAddress = data;
             const addressArray = data.Address.split(',');
@@ -77,7 +78,7 @@ export class SearchComponent implements OnInit {
         });
     }
 
-    // nearby Type SelectEvent
+    // nearby pType SelectEvent
     nearbyTypeSelectEvent(data: any) {
         this.nearbyList = true;
         this.bkoiCloudService
@@ -87,8 +88,11 @@ export class SearchComponent implements OnInit {
                 this.selectedAddress.longitude
             )
             .subscribe(nearbyPlaces => {
+
+                // sending nearby places list to SearchNearbyListComponent component
                 this.dataBoatService.sendData(nearbyPlaces);
 
+                // sending nearby places list to SearchMapComponent component
                 this.dataVesselService.sendData(nearbyPlaces);
             });
     }
@@ -99,10 +103,6 @@ export class SearchComponent implements OnInit {
         this.selectedAddress = place;
         const addressArray = place.new_address.split(',');
 
-        // place.place_name
-        //     ? (this.placeName = place.place_name)
-        //     : (this.placeName = addressArray.shift());
-        // this.placeName = null;
         this.placeName = place.place_name_2;
 
         addressArray.shift();
@@ -111,7 +111,7 @@ export class SearchComponent implements OnInit {
         this.addressVisibility = true;
     }
 
-    // Search autocomplete
+    // Search AUTOCOMPLETE
     getServerResponse(event) {
         this.isLoadingResult = true;
 
@@ -127,6 +127,8 @@ export class SearchComponent implements OnInit {
 
                     data.places.forEach((addr: AutocompleteAddress) => {
                         const ab = addr.new_address.split(',');
+
+                        // splitting first words before comma
                         ab.shift();
                         addr.cropped_address = ab.toString();
                         addr.place_name_2 = addr.place_name;
@@ -140,9 +142,11 @@ export class SearchComponent implements OnInit {
             });
     }
 
+    // search input clear button
     searchCleared() {
         console.log('searchCleared');
         this.searchResult = [];
+        this.addressVisibility = false;
     }
 
     selectEvent(item) {

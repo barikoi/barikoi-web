@@ -22,8 +22,8 @@ import {
     Marker,
 } from 'leaflet';
 import { NearbyListFocusService } from 'src/app/services/nearby-list-focus.service';
-import { JsonPipe } from '@angular/common';
 
+// Default marker icons
 const DEFAULT_MAKRER =
     'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png';
 const GREEN_MAKRER =
@@ -38,7 +38,7 @@ const MARKER_SHADOW =
 })
 export class SearchMapComponent implements OnInit {
     @Output() mapClickEvent: EventEmitter<any> = new EventEmitter();
-    @Input() userClickOnNearbyList: any;
+    // @Input() userClickOnNearbyList: any;
 
     options = {
         layers: tileLayer('https://map.barikoi.com/styles/osm-bright/{z}/{x}/{y}.png', {
@@ -50,7 +50,11 @@ export class SearchMapComponent implements OnInit {
         center: latLng(23.777176, 90.399452),
     };
     // center = latLng(latLng(23.777176, 90.399452))
+
+    // for getting nearby list
     subscription: Subscription;
+
+    // for nearby places list click detect
     nearbyListSubscription: Subscription;
     markers: Marker[] = [];
     map: Map;
@@ -62,6 +66,7 @@ export class SearchMapComponent implements OnInit {
     ) {
         this.markers = [];
 
+        // receiving nearby places list from SearchComponent
         this.subscription = this.dataVesselService
             .getData()
             .subscribe(place => {
@@ -72,6 +77,7 @@ export class SearchMapComponent implements OnInit {
                 this.addMarker(place);
             });
 
+        // // updating marker focus on nearby list click | coming from
         this.nearbyListSubscription = this.nearbyListFocusService
             .getData()
             .subscribe(place => {
@@ -96,6 +102,8 @@ export class SearchMapComponent implements OnInit {
             });
 
             let revGeoAddress: any;
+
+            // reverse geo code response
             this.bkoiCloudService.getReverseGeoResponse(e.latlng).subscribe(
                 result => {
                     revGeoAddress = result[0];
@@ -111,12 +119,8 @@ export class SearchMapComponent implements OnInit {
             if (this.markers.length > 0) {
                 this.markers = [];
             }
-            // console.log(e);
 
             this.markers.push(newMarker2);
-
-            // this.reverseGeo(e);
-            // this.dataBoatService.sendData(e);
         });
     }
 
@@ -124,10 +128,7 @@ export class SearchMapComponent implements OnInit {
         this.mapClickEvent.emit(e);
     }
 
-    // focusSelectedPlace(e: any) {
-    //     console.log(e + 'ye');
-    // }
-
+    // adding single marker
     private addMarker(place) {
         if (this.markers.length > 0) {
             this.markers = [];
@@ -163,6 +164,7 @@ export class SearchMapComponent implements OnInit {
         );
     }
 
+    // adding multiple marker
     private addMarkerMultiple(places) {
         // this.markers = [];
 
@@ -194,6 +196,7 @@ export class SearchMapComponent implements OnInit {
         // this.markers.push()
     }
 
+    // focus on nearby place select
     private focusSelectedMarker(place) {
 
 
