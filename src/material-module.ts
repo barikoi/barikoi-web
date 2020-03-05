@@ -40,6 +40,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   exports: [
@@ -85,6 +87,9 @@ import {MatTreeModule} from '@angular/material/tree';
     MatTreeModule,
     PortalModule,
     ScrollingModule,
+    FormsModule,
+    ReactiveFormsModule
+    
   ]
 })
 export class MaterialModule {}

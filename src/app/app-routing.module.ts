@@ -6,6 +6,7 @@ import { UrbanEngineComponent } from './components/urban-engine/urban-engine.com
 import { BarikoiApiComponent } from './components/barikoi-api/barikoi-api.component';
 import { RupantorComponent } from './components/rupantor/rupantor.component';
 import { SearchComponent } from './components/search/search.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'urban-engine', component: UrbanEngineComponent },
   { path: 'api', component: BarikoiApiComponent },
   { path: 'rupantor', component: RupantorComponent },
-  { path: 'search', component: SearchComponent }
+  { path: 'search', component: SearchComponent },
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({
