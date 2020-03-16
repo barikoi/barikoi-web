@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, CanActivate } from '@angular/router';
 import { Observable } from 'rxjs';
 import decode from 'jwt-decode';
-import { API_URL } from './../app.constants';
+import { API_URL, AUTH_URI } from './../app.constants';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService implements CanActivate {
   constructor(public http: HttpClient, public router: Router) {}
 
   login(credentials: any): Observable<any> {
     const user = {
-      user: credentials.email,
+      email: credentials.email,
       password: credentials.password
     };
-    return this.http.post(`${API_URL}/users/authenticate`, user);
+    return this.http.post(`${AUTH_URI}`, user);
   }
 
   logout(): void {
@@ -31,11 +31,13 @@ export class AuthService {
   }
 
   getToken(): String {
+    console.log(localStorage.getItem('token'));
     return localStorage.getItem('token');
   }
 
-  isAuthenticated(): boolean {
+  canActivate(): boolean {
     const token = this.getToken();
+    console.log(token)
     if (!token) {
       return false;
     }
@@ -50,4 +52,6 @@ export class AuthService {
     const roleClaim = decode(token).role;
     return roleClaim === role;
   }
+
+
 }

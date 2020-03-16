@@ -23,31 +23,44 @@ export class LoginComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/game';
+    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '';
 
     this.form = this.fb.group({
       username: ['', Validators.email],
       password: ['', Validators.required]
     });
 
-    // if (await this.authService.checkAuthenticated()) {
-    //   await this.router.navigate([this.returnUrl]);
-    // }
+    if (await this.authService.canActivate()) {
+      await this.router.navigate([this.returnUrl]);
+    }
   }
 
   async onSubmit() {
     this.loginInvalid = false;
     this.formSubmitAttempt = false;
-    // if (this.form.valid) {
-    //   try {
-    //     const username = this.form.get('username').value;
-    //     const password = this.form.get('password').value;
-    //     await this.authService.login(username, password);
-    //   } catch (err) {
-    //     this.loginInvalid = true;
-    //   }
-    // } else {
-    //   this.formSubmitAttempt = true;
-    // }
+    if (this.form.valid) {
+      try {
+        const username = this.form.get('username').value;
+        const password = this.form.get('password').value;
+        let cred = {
+          'email': username,
+          'password': password 
+        }
+        await this.authService.login(cred).subscribe(
+          result => {
+            console.log(result)
+            this.authService.setSession(result.data.token)
+          },
+          err => {
+              console.error(`something went wrong, ${err}`);
+          },
+          () => {}
+       );
+      } catch (err) {
+        this.loginInvalid = true;
+      }
+    } else {
+      this.formSubmitAttempt = true;
+    }
   }
 }

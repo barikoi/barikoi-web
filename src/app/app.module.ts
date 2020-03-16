@@ -39,6 +39,11 @@ import { SearchMapComponent } from './components/search/search-map/search-map.co
 import { SearchNearbyListComponent } from './components/search/search-nearby-list/search-nearby-list.component';
 import { SearchNearbyPtypesComponent } from './components/search/search-nearby-ptypes/search-nearby-ptypes.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthService} from './services/auth.service';
+import { RoleGuardService } from './services/role-guard.service';
+import { BkoiAddressVerifyComponent } from './components/bkoi-address-verify/bkoi-address-verify.component';
+import { BkoiAvContentComponent } from './components/bkoi-address-verify/bkoi-av-content/bkoi-av-content.component';
+import { BkoiAvDefComponent } from './components/bkoi-address-verify/bkoi-av-def/bkoi-av-def.component' 
 
 @NgModule({
     declarations: [
@@ -70,6 +75,9 @@ import { LoginComponent } from './components/login/login.component';
         SearchNearbyListComponent,
         SearchNearbyPtypesComponent,
         LoginComponent,
+        BkoiAddressVerifyComponent,
+        BkoiAvContentComponent,
+        BkoiAvDefComponent,
     ],
     imports: [
         FormsModule,
@@ -83,7 +91,7 @@ import { LoginComponent } from './components/login/login.component';
         LeafletModule,
         AutocompleteLibModule
     ],
-    providers: [],
+    providers: [AuthService, RoleGuardService],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
