@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router, CanActivate } from '@angular/router';
 import { Observable } from 'rxjs';
 import decode from 'jwt-decode';
-import { API_URL, AUTH_URI } from './../app.constants';
+import { API_URL, AUTH_URI, USER_PROF, DEV_API_KEY} from './../app.constants';
 
 
 @Injectable({
@@ -11,6 +11,36 @@ import { API_URL, AUTH_URI } from './../app.constants';
 })
 export class AuthService implements CanActivate {
   constructor(public http: HttpClient, public router: Router) {}
+  
+  user_info;
+
+  get_user_api_info(): void {
+    this.http.get(DEV_API_KEY).subscribe(
+      data => {
+        console.log(data)
+        localStorage.setItem('apiinfo', JSON.stringify(data));
+      },
+      err => console.log(err)
+    )
+  }
+
+  get_user_info_from_server(): void{
+    this.http.get(`${USER_PROF}`).subscribe(
+      results => {
+        localStorage.setItem('profile', JSON.stringify(results['data']));
+        this.router.navigate(['dev/account']);
+      }
+    );
+  }
+
+
+  get_user_status():any{
+    return JSON.parse(localStorage.getItem('profile'));
+  }
+
+  get_user_api_status():any{
+    return JSON.parse(localStorage.getItem('apiinfo'));
+  }
 
   login(credentials: any): Observable<any> {
     const user = {
@@ -27,11 +57,11 @@ export class AuthService implements CanActivate {
 
   setSession(token: string): void {
     localStorage.setItem('token', token);
-    this.router.navigate(['home']);
+    this.get_user_api_info()
+    this.get_user_info_from_server()
   }
 
   getToken(): String {
-    console.log(localStorage.getItem('token'));
     return localStorage.getItem('token');
   }
 

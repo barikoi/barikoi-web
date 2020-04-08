@@ -1,0 +1,148 @@
+<div class="api-modal">
+  <h2 mat-dialog-title>API's</h2>
+  <mat-dialog-content class="mat-typography">
+    <div mat-dialog-content>
+        <!-- <input matInput [(ngModel)]="data.email"> -->
+        <div class="input-group">
+          <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="geo"
+              readonly
+              #inputTarget1
+          />
+          <span class="input-group-append">
+              <button
+                  class="btn btn-default"
+                  type="button"
+                  [ngxClipboard]="inputTarget1"
+                  (cbOnSuccess)="onCopySuccess('#inputTarget1')"
+                  (cbOnError)="onCopyFailure()"
+                  [class.btn-success]="isCopied1"
+              >
+                  copy
+              </button>
+          </span>
+        </div>
+
+        <div class="input-group">
+          <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="revgeo"
+              readonly
+              #inputTarget2
+          />
+          <span class="input-group-append">
+              <button
+                  class="btn btn-default"
+                  type="button"
+                  [ngxClipboard]="inputTarget2"
+                  (cbOnSuccess)="onCopySuccess('#inputTarget2')"
+                  (cbOnError)="onCopyFailure()"
+                  [class.btn-success]="isCopied2"
+              >
+                  copy
+              </button>
+          </span>
+        </div>
+
+        <div class="input-group">
+          <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="autocom"
+              readonly
+              #inputTarget3
+          />
+          <span class="input-group-append">
+              <button
+                  class="btn btn-default"
+                  type="button"
+                  [ngxClipboard]="inputTarget3"
+                  (cbOnSuccess)="onCopySuccess('#inputTarget3')"
+                  (cbOnError)="onCopyFailure()"
+                  [class.btn-success]="isCopied3"
+              >
+                  copy
+              </button>
+          </span>
+        </div>
+
+        <div class="input-group">
+          <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="nearby"
+              readonly
+              #inputTarget4
+          />
+          <span class="input-group-append">
+              <button
+                  class="btn btn-default"
+                  type="button"
+                  [ngxClipboard]="inputTarget4"
+                  (cbOnSuccess)="onCopySuccess('#inputTarget4')"
+                  (cbOnError)="onCopyFailure()"
+                  [class.btn-success]="isCopied4"
+              >
+                  copy
+              </button>
+          </span>
+        </div>
+
+        <div class="input-group">
+          <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="distance"
+              readonly
+              #inputTarget5
+          />
+          <span class="input-group-append">
+              <button
+                  class="btn btn-default"
+                  type="button"
+                  [ngxClipboard]="inputTarget5"
+                  (cbOnSuccess)="onCopySuccess('#inputTarget5')"
+                  (cbOnError)="onCopyFailure()"
+                  [class.btn-success]="isCopied5"
+              >
+                  copy
+              </button>
+          </span>
+        </div>
+
+        <div class="input-group">
+          <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="routing"
+              readonly
+              #inputTarget6
+          />
+          <span class="input-group-append">
+              <button
+                  class="btn btn-default"
+                  type="button"
+                  [ngxClipboard]="inputTarget6"
+                  (cbOnSuccess)="onCopySuccess('#inputTarget6')"
+                  (cbOnError)="onCopyFailure()"
+                  [class.btn-success]="isCopied6"
+              >
+                  copy
+              </button>
+          </span>
+        </div>
+
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
+  </mat-dialog-actions>
+
+
+
+
+</div>

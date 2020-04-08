@@ -1,0 +1,57 @@
+<div class="account-dev component">
+    <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="center">
+  
+      <div fxLayout="column" fxLayoutAlign="center center">
+        
+        <div>
+            <h4>Account Overview </h4>
+        </div>
+        
+        <!-- lodsdfsf -->
+      </div>
+  
+    </div>
+
+    <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="10px" fxLayoutAlign="start">
+  
+        <div fxFlex.lt-sm="100" fxFlex="50%" fxLayout.lt-sm="row" fxLayoutAlign="center">
+            <mat-card class="example-card">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title>API Panel</mat-card-title>
+                  <!-- <mat-card-subtitle>Api</mat-card-subtitle> -->
+                </mat-card-header>
+                <mat-card-content>
+                    <div>{{user_api_info.message}}</div>
+                    <div>Current Plan: Pay as you go</div>  
+                    <div>Active Api Key:  {{user_api_info.current_active_key}} </div>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-button (click)="openDialog()" *ngIf="!show_api_gen_option">API</button>
+                  <button mat-button (click)="generate_api_key()" *ngIf="show_api_gen_option">Generate API KEY</button>
+                </mat-card-actions>
+              </mat-card>
+          <!-- lodsdfsf -->
+        </div>
+
+        <div fxFlex.lt-sm="100" fxFlex="50%" fxLayout.lt-sm="row" fxLayoutAlign="center">
+            <mat-card class="example-card">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title>Profile</mat-card-title>
+                  <!-- <mat-card-subtitle>Api</mat-card-subtitle> -->
+                </mat-card-header>
+                <mat-card-content>
+                    <div>User: {{user_info.name}}</div>
+                    <div>Email: {{user_info.email}}</div>
+                    <div>Contact: {{user_info.phone}}</div>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-button (click)="openPRDialog()">Reset Password</button>
+                </mat-card-actions>
+              </mat-card>
+          <!-- lodsdfsf -->
+        </div>
+    
+    </div>
+</div>

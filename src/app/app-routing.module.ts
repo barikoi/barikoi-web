@@ -9,6 +9,11 @@ import { RupantorComponent } from './components/rupantor/rupantor.component';
 import { SearchComponent } from './components/search/search.component';
 import { LoginComponent } from './components/login/login.component';
 
+import { DevDashComponent } from './developer-dashboard/dev-dash/dev-dash.component'
+import { AccountComponent } from './developer-dashboard/account/account.component'
+import { AnalyticsComponent } from './developer-dashboard/analytics/analytics.component'
+
+
 import { AuthService as AuthGuard } from './services/auth.service';
 import { RoleGuardService as RoleGuard } from './services/role-guard.service' 
 
@@ -22,7 +27,22 @@ const routes: Routes = [
   { path: 'rupantor', component: RupantorComponent, canActivate: [RoleGuard]  },
   { path: 'search', component: SearchComponent },
   { path: 'login', component: LoginComponent },
-  { path: '**', redirectTo: '' }
+  {
+    path: 'dev',
+    component: DevDashComponent,
+    children: [
+        {
+            path: 'account',
+            component: AccountComponent,
+            canActivate: [RoleGuard]
+        },
+        {
+            path: 'analytics',
+            component: AnalyticsComponent,
+            canActivate: [RoleGuard]
+        }
+    ]
+  }
 ];
 
 @NgModule({

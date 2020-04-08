@@ -14,7 +14,6 @@ export class RoleGuardService implements CanActivate {
     // on the data property
     const expectedRole = route.data.expectedRole;
     const token = localStorage.getItem('token');
-    console.log(token)
     // decode the token to get its payload
     try{
       const tokenPayload = decode(token);

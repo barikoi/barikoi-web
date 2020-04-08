@@ -1,0 +1,44 @@
+
+<mat-sidenav-container fullscreen class="dev-sidebar">
+  <mat-sidenav mode="side" #sidenav opened position="start">
+    <span routerLink="/" class="bari bkoi-logo">Bari<span class="koi">koi</span></span> 
+    
+    <mat-list role="list">
+      <mat-list-item role="listitem"><a routerLink="/dev/account" [routerLinkActive]  #rla="routerLinkActive" [ngClass]="rla.isActive ? 'active-link' : 'inactive-link'">Account</a></mat-list-item>
+      <mat-list-item role="listitem"><a routerLink="/dev/analytics" [routerLinkActive]  #rld="routerLinkActive" [ngClass]="rld.isActive ? 'active-link' : 'inactive-link'">Dashboard</a></mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+
+  
+  <mat-sidenav-content>
+    <!-- <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      My Application
+      <span class="toolbar-spacer"></span>
+      My Account
+    </mat-toolbar> -->
+
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <!-- <span routerLink="/" class="bari bkoi-logo">Bari<span class="koi">koi</span></span> -->
+
+      <span class="example-spacer"></span>
+
+      <button mat-button [matMenuTriggerFor]="productsMenu">
+        Account
+      </button>
+      <mat-menu #productsMenu="matMenu" yPosition="below">
+        <button mat-menu-item>Logout</button>
+      </mat-menu>
+    </mat-toolbar-row>
+    
+    <app-analytics *ngIf="router.url.startsWith('/dev/analytics')"></app-analytics>
+    <app-account *ngIf="router.url.startsWith('/dev/account')"></app-account>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+    

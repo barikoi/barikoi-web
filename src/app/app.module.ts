@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Ng5SliderModule } from 'ng5-slider';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,6 +9,9 @@ import { MaterialModule } from 'src/material-module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+import { TokenInterceptor } from './token-interceptor';
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 import { HomeComponent } from './components/home/home.component';
@@ -41,10 +44,11 @@ import { SearchNearbyPtypesComponent } from './components/search/search-nearby-p
 import { LoginComponent } from './components/login/login.component';
 import { AuthService} from './services/auth.service';
 import { RoleGuardService } from './services/role-guard.service';
+import { StateDataService} from './services/state-data.service';
 import { BkoiAddressVerifyComponent } from './components/bkoi-address-verify/bkoi-address-verify.component';
 import { BkoiAvContentComponent } from './components/bkoi-address-verify/bkoi-av-content/bkoi-av-content.component';
-import { BkoiAvDefComponent } from './components/bkoi-address-verify/bkoi-av-def/bkoi-av-def.component' 
-
+import { BkoiAvDefComponent } from './components/bkoi-address-verify/bkoi-av-def/bkoi-av-def.component';
+import { DeveloperDashboardModule } from './developer-dashboard/developer-dashboard.module'
 @NgModule({
     declarations: [
         AppComponent,
@@ -89,9 +93,20 @@ import { BkoiAvDefComponent } from './components/bkoi-address-verify/bkoi-av-def
         FlexLayoutModule,
         Ng5SliderModule,
         LeafletModule,
-        AutocompleteLibModule
+        AutocompleteLibModule,
+        DeveloperDashboardModule,
+        ToastrModule.forRoot()
     ],
-    providers: [AuthService, RoleGuardService],
+    providers: [
+        AuthService, 
+        RoleGuardService,
+        StateDataService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenInterceptor,
+            multi: true
+        }
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

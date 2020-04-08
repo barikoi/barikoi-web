@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     });
 
     if (await this.authService.canActivate()) {
-      await this.router.navigate([this.returnUrl]);
+      await this.router.navigate(['/dev/account']);
     }
   }
 
