@@ -14,6 +14,7 @@ import {
 })
 export class NavbarComponent implements OnInit {
     isHome = true;
+    isDev = false;
 
     // ddd();
 
@@ -36,12 +37,13 @@ export class NavbarComponent implements OnInit {
             this.router.url === '/'
                 ? (this.isHome = true)
                 : (this.isHome = false);
+
+            // this.router.url.startsWith('/dev/')
+            //     ? (this.isDev = true)
+            //     : (this.isDev = false);
         }
 
         if (event instanceof NavigationError) {
-            // Hide loading indicator
-
-            // Present error to user
             console.log(event.error);
         }
     });

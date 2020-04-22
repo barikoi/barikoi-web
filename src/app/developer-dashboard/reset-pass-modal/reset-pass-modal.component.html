@@ -1,0 +1,35 @@
+<div class="reset-pass">
+    <h2 mat-dialog-title>Change Password</h2>
+    <mat-dialog-content class="mat-typography">
+      <div mat-dialog-content>
+          <!-- <input matInput [(ngModel)]="data.email"> -->
+          <div class="input-group">
+            <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="current_pass"
+                #inputTarget1
+            />
+          </div>
+
+          <div class="input-group">
+            <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="new_pass"
+                #inputTarget1
+            />
+          </div>
+
+          <div class="input-group">
+            <button class="mat-button" (click)="changePass(current_pass, new_pass)">Change Password</button>
+          </div>
+  
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
+    </mat-dialog-actions>
+  
+</div>

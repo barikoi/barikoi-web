@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { KEY_GEN, UPDATE_PASSWORD } from '../app.constants';
+
 import { Observable } from 'rxjs';
 
 
@@ -7,7 +9,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class BkoiCloudService {
-
+  user_info
   constructor( private http: HttpClient ) { }
 
   // reverse geocode service
@@ -20,5 +22,21 @@ export class BkoiCloudService {
     return this.http
     .get(`https://admin.barikoi.xyz/v1/public/find/nearby/by/catagory/noauth?latitude=${latitude}&longitude=${longitude}&ptype=${placeType}`);
   }
+
+  public gen_api(email: any) {
+    let data = {
+      'email': email
+    }
+    return this.http.post(`${KEY_GEN}`, data)
+  }
+
+  public change_password(cp: String, np: String){
+    let data = {
+      'oldPass': cp,
+      'newPass': np
+    }
+    return this.http.post(`${UPDATE_PASSWORD}`, data)
+  }
+
 }
 

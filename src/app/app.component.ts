@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
 
             if (event instanceof NavigationEnd) {
                 // Hide loading indicator
-                this.router.url === '/search'
+                this.router.url === '/search' || this.router.url.startsWith('/dev/')
                     ? (this.isSearch = true)
                     : (this.isSearch = false);
             }
