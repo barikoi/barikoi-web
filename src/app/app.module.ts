@@ -11,6 +11,9 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { TokenInterceptor } from './token-interceptor';
 import { ToastrModule } from 'ngx-toastr';
+// import {NgxChartistModule} from 'ngx-chartist';
+
+
 
 
 
@@ -48,7 +51,12 @@ import { StateDataService} from './services/state-data.service';
 import { BkoiAddressVerifyComponent } from './components/bkoi-address-verify/bkoi-address-verify.component';
 import { BkoiAvContentComponent } from './components/bkoi-address-verify/bkoi-av-content/bkoi-av-content.component';
 import { BkoiAvDefComponent } from './components/bkoi-address-verify/bkoi-av-def/bkoi-av-def.component';
-import { DeveloperDashboardModule } from './developer-dashboard/developer-dashboard.module'
+import { DeveloperDashboardModule } from './developer-dashboard/developer-dashboard.module';
+import { SignupComponent } from './components/signup/signup.component';
+import { PriceTableComponent } from './components/pricing/price-table/price-table.component';
+import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
+import { MapboxSearchComponent } from './components/search/mapbox-search/mapbox-search.component';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -82,6 +90,10 @@ import { DeveloperDashboardModule } from './developer-dashboard/developer-dashbo
         BkoiAddressVerifyComponent,
         BkoiAvContentComponent,
         BkoiAvDefComponent,
+        SignupComponent,
+        PriceTableComponent,
+        ForgotPassComponent,
+        MapboxSearchComponent,
     ],
     imports: [
         FormsModule,
@@ -95,8 +107,10 @@ import { DeveloperDashboardModule } from './developer-dashboard/developer-dashbo
         LeafletModule,
         AutocompleteLibModule,
         DeveloperDashboardModule,
-        ToastrModule.forRoot()
+        // NgxChartistModule,
+        ToastrModule.forRoot(),
     ],
+    entryComponents: [ForgotPassComponent],
     providers: [
         AuthService, 
         RoleGuardService,

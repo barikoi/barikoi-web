@@ -1,8 +1,11 @@
 <mat-sidenav-container class="bkoi-search">
     <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+        <mat-icon style="float: right;margin-top: .5em;" (click)="sidenav.toggle(); opened=!opened" *ngIf="opened">navigate_before</mat-icon>
         <h1 routerLink="/" class="barkoi-logo-h1">
             <span class="bari bkoi-logo">Bari<span class="koi">koi</span></span>
+            
         </h1>
+
 
         <div fxLayout="column" fxLayoutGap="30px">
             <div fxLayout="column" fxLayoutAlign="center center">
@@ -12,7 +15,7 @@
                             [data]="searchResult"
                             [searchKeyword]="keyword"
                             (selected)="selectEvent($event)"
-                            (inputChanged)="getServerResponse($event)"
+                            (inputChanged)="getServerResponse($event, false)"
                             (inputFocused)="onFocused($event)"
                             [itemTemplate]="itemTemplate"
                             (inputCleared)="searchCleared()"
@@ -32,7 +35,7 @@
                     <ng-template #itemTemplate let-item>
                         <a
                             href="javascript:void(0)"
-                            (click)="showDetails(item)"
+                            (click)="showDetails(item, false)"
                         >
                             <div fxLayout="row">
                                 <div fxFlex="10">
@@ -83,6 +86,9 @@
                                 {{ selectedAddress.pType }}
                             </p>
                         </div>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutGap="20px" class="addr-type-ucode">
                         <div fxLayoutAlign="end center">
                             <p class="p-light-smaller address-ucode">
                                 Place Code : {{ selectedAddress.uCode }}
@@ -113,8 +119,8 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-        <button mat-raised-button (click)="sidenav.toggle()">
-            Toggle drawer
+        <button (click)="sidenav.toggle(); opened=!opened" *ngIf="!opened">
+            <mat-icon>navigate_next</mat-icon>
         </button>
 
         <div>
@@ -122,5 +128,8 @@
                 (mapClickEvent)="reverseGeoMapEvent($event)"
             ></app-search-map>
         </div>
+
+        <!-- <app-mapbox-search></app-mapbox-search>  -->
+        
     </mat-sidenav-content>
 </mat-sidenav-container>

@@ -12,12 +12,18 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field class="full-width-input">
-        <input matInput type="password" placeholder="Password" formControlName="password" required>
+        <input matInput  placeholder="Password" formControlName="password" required [type]="hide1 ? 'text' : 'password'">
+        <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility' : 'visibility_off'}}</mat-icon>
         <mat-error>
           Please provide a valid password
         </mat-error>
       </mat-form-field>
       <button mat-raised-button color="primary">Login</button>
     </form>
+    <small>
+      <br>
+      No Account Yet? <a routerLink="/signup">Signup</a>
+      </small>
+      <button mat-button (click)="openPRDialog()">Forgot Password?</button>
   </mat-card-content>
 </mat-card>

@@ -16,12 +16,12 @@ interface DialogData {
 
 export class ApiModalComponent implements OnInit {
   private apiKey;
-  private geo: String
-  private revgeo: String;
-  private autocom: String;
-  private nearby: String;
-  private distance: String;
-  private routing: String;
+  public geo: String
+  public revgeo: String;
+  public autocom: String;
+  public nearby: String;
+  public distance: String;
+  public routing: String;
   isCopied1 = false;
   isCopied2 = false;
   isCopied3 = false;

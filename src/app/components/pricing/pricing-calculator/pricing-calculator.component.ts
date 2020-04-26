@@ -11,7 +11,7 @@ export class PricingCalculatorComponent implements OnInit {
     constructor() {}
 
     upFrontPrice = 4000;
-    payAsYouGoPrice = 5000;
+    payAsYouGoPrice = 15000;
 
     value = 100000;
     options: Options = {
@@ -27,8 +27,8 @@ export class PricingCalculatorComponent implements OnInit {
     };
 
     onSlideChange(event) {
-        this.upFrontPrice = Math.round(event.value * 0.04);
-        this.payAsYouGoPrice = Math.round(event.value * 0.05);
+        // this.upFrontPrice = Math.round(event.value * 0.04);
+        this.payAsYouGoPrice = Math.round(event.value * 0.15);
     }
 
     ngOnInit() {}

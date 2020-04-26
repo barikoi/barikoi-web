@@ -1,0 +1,32 @@
+<div class="reset-pass">
+    <h4 mat-dialog-title>Please enter your email of the account for password recovery</h4>
+    <mat-dialog-content class="mat-typography">
+      <div mat-dialog-content>
+          <!-- <input matInput [(ngModel)]="data.email"> -->
+         <br>
+          <div class="input-group">
+          
+            <input
+                placeholder="Email"
+                class="form-control"
+                matInput
+                [(ngModel)]="email"
+                [type]="email"
+                required
+                #inputTarget1
+            />
+          </div>
+          <br>
+         
+          <div class="input-group">
+            <button class="mat-button" (click)="sendEmail(email)">Send</button>
+          </div>
+  
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <!-- <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
+    </mat-dialog-actions>
+  
+</div>

@@ -3,26 +3,38 @@
     <mat-dialog-content class="mat-typography">
       <div mat-dialog-content>
           <!-- <input matInput [(ngModel)]="data.email"> -->
+         <br>
           <div class="input-group">
+          
             <input
-                type="text"
+                placeholder="Current Password"
                 class="form-control"
+                matInput
                 [(ngModel)]="current_pass"
+                [type]="hide1 ? 'text' : 'password'"
+                required
                 #inputTarget1
             />
+            <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility' : 'visibility_off'}}</mat-icon>
           </div>
-
+          <br>
+         
           <div class="input-group">
             <input
-                type="text"
+                placeholder="New Password"
                 class="form-control"
+                matInput
                 [(ngModel)]="new_pass"
-                #inputTarget1
+                [type]="hide2 ? 'text' : 'password'"
+                #inputTarget2
             />
+            <mat-icon matSuffix (click)="hide2 = !hide2">{{hide2 ? 'visibility' : 'visibility_off'}}</mat-icon>
           </div>
 
+          <br>
+
           <div class="input-group">
-            <button class="mat-button" (click)="changePass(current_pass, new_pass)">Change Password</button>
+            <button class="mat-button" (click)="changePass(current_pass, new_pass)">Update Password</button>
           </div>
   
       </div>

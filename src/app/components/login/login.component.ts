@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators , ReactiveFormsModule} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { ForgotPassComponent} from '../forgot-pass/forgot-pass.component';
+
 
 @Component({
   selector: 'app-login',
@@ -13,12 +16,14 @@ export class LoginComponent implements OnInit {
   public loginInvalid: boolean;
   private formSubmitAttempt: boolean;
   private returnUrl: string;
+  public hide1;
 
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    public dialog: MatDialog
   ) {
   }
 
@@ -29,7 +34,7 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.email],
       password: ['', Validators.required]
     });
-
+    console.log('problem is here')
     if (await this.authService.canActivate()) {
       await this.router.navigate(['/dev/account']);
     }
@@ -63,4 +68,19 @@ export class LoginComponent implements OnInit {
       this.formSubmitAttempt = true;
     }
   }
+
+
+  openPRDialog(): void {
+    const dialogRef = this.dialog.open(ForgotPassComponent, {
+      width: '40em',
+      backdropClass:'custom-dialog-backdrop-class',
+      panelClass:'custom-dialog-panel-class',
+      // data: {apiKey: this.user_api_info.current_active_key}
+    });
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //     this.toastr.success('Hello world!', 'Toastr fun!');
+    // });
+  }
+
 }

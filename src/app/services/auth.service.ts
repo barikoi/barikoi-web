@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router, CanActivate } from '@angular/router';
 import { Observable } from 'rxjs';
 import decode from 'jwt-decode';
-import { API_URL, AUTH_URI, USER_PROF, DEV_API_KEY} from './../app.constants';
+import { API_URL, AUTH_URI, AUTH_REG, USER_PROF, DEV_API_KEY} from './../app.constants';
 
 
 @Injectable({
@@ -17,7 +17,7 @@ export class AuthService implements CanActivate {
   get_user_api_info(): void {
     this.http.get(DEV_API_KEY).subscribe(
       data => {
-        console.log(data)
+       
         localStorage.setItem('apiinfo', JSON.stringify(data));
       },
       err => console.log(err)
@@ -28,7 +28,7 @@ export class AuthService implements CanActivate {
     this.http.get(`${USER_PROF}`).subscribe(
       results => {
         localStorage.setItem('profile', JSON.stringify(results['data']));
-        this.router.navigate(['dev/account']);
+        this.router.navigate(['dev/analytics']);
       }
     );
   }
@@ -50,10 +50,25 @@ export class AuthService implements CanActivate {
     return this.http.post(`${AUTH_URI}`, user);
   }
 
+
+  signup(credentials: any): Observable<any> {
+    const user = {
+      name: credentials.name,
+      email: credentials.email,
+      phone: credentials.phone,
+      password: credentials.password,
+      userType: credentials.userType
+    };
+    return this.http.post(`${AUTH_REG}`, user);
+  }
+
   logout(): void {
     localStorage.removeItem('token');
-    this.router.navigate(['login']);
+    localStorage.removeItem('profile');
+    localStorage.removeItem('apiinfo');
+    this.router.navigate(['/']);
   }
+  
 
   setSession(token: string): void {
     localStorage.setItem('token', token);
@@ -67,7 +82,7 @@ export class AuthService implements CanActivate {
 
   canActivate(): boolean {
     const token = this.getToken();
-    console.log(token)
+    
     if (!token) {
       return false;
     }

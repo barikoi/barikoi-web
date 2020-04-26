@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from 'src/material-module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ClipboardModule } from 'ngx-clipboard';
+// import {NgxChartistModule} from 'ngx-chartist';
+
 
 
 
@@ -24,7 +26,8 @@ import { ResetPassModalComponent } from './reset-pass-modal/reset-pass-modal.com
     MaterialModule,
     DevDashRoutingModule,
     FlexLayoutModule,
-    ClipboardModule
+    ClipboardModule,
+    // NgxChartistModule
   ],
   entryComponents: [ApiModalComponent, ResetPassModalComponent]
 })

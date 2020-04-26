@@ -3,8 +3,8 @@ import { StateDataService } from '../../services/state-data.service'
 import { BkoiCloudService } from '../../services/bkoi-cloud.service'
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { ApiModalComponent} from '../api-modal/api-modal.component';
-import { ResetPassModalComponent} from '../reset-pass-modal/reset-pass-modal.component'
-import { ToastrService } from 'ngx-toastr';
+import { ResetPassModalComponent} from '../reset-pass-modal/reset-pass-modal.component';
+
 
 
 
@@ -25,12 +25,16 @@ export class AccountComponent implements OnInit {
   user_api_info: any;
   show_api_gen_option = true
 
-  constructor(private stateDataService: StateDataService, private cloudService: BkoiCloudService, public dialog: MatDialog, private toastr: ToastrService) { }
+  constructor(private stateDataService: StateDataService, private cloudService: BkoiCloudService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.user_info = this.stateDataService.pass_user_info()
     this.user_api_info = this.stateDataService.pass_user_api_info()
-    this.user_api_info.current_active_key == undefined ? this.show_api_gen_option = true : this.show_api_gen_option = false
+    try{
+      this.user_api_info.current_active_key == undefined ? this.show_api_gen_option = true : this.show_api_gen_option = false
+    }catch(e){
+      this.show_api_gen_option = true
+    }
   }
 
 
@@ -64,7 +68,6 @@ export class AccountComponent implements OnInit {
   generate_api_key(): void{
     this.cloudService.gen_api(this.user_info.email).subscribe(
       data =>{
-          console.log(data)
           this.user_api_info.message = 'Active Api Key: 1'
           this.user_api_info.current_active_key = data['key']
           let temp_data = {

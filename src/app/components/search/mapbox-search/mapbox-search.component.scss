@@ -1,0 +1,13 @@
+.map-container {
+// height: 100vh;
+// position: absolute;
+// z-index: 100;
+    .marker {
+        display: block;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1000;
+    }
+}

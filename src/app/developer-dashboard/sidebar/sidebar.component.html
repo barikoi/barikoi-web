@@ -4,8 +4,9 @@
     <span routerLink="/" class="bari bkoi-logo">Bari<span class="koi">koi</span></span> 
     
     <mat-list role="list">
-      <mat-list-item role="listitem"><a routerLink="/dev/account" [routerLinkActive]  #rla="routerLinkActive" [ngClass]="rla.isActive ? 'active-link' : 'inactive-link'">Account</a></mat-list-item>
       <mat-list-item role="listitem"><a routerLink="/dev/analytics" [routerLinkActive]  #rld="routerLinkActive" [ngClass]="rld.isActive ? 'active-link' : 'inactive-link'">Dashboard</a></mat-list-item>
+
+      <mat-list-item role="listitem"><a routerLink="/dev/account" [routerLinkActive]  #rla="routerLinkActive" [ngClass]="rla.isActive ? 'active-link' : 'inactive-link'">Account</a></mat-list-item>
     </mat-list>
   </mat-sidenav>
 
@@ -32,7 +33,7 @@
         Account
       </button>
       <mat-menu #productsMenu="matMenu" yPosition="below">
-        <button mat-menu-item>Logout</button>
+        <button mat-menu-item (click)="gologout()">Logout</button>
       </mat-menu>
     </mat-toolbar-row>
     

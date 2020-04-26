@@ -14,7 +14,9 @@ import { LeafletMouseEvent } from 'leaflet';
 import { DataVesselService } from 'src/app/services/data-vessel.service';
 import { BkoiCloudService } from 'src/app/services/bkoi-cloud.service';
 import { AddressRevGeo } from '../../Address-rev-geo';
+import { ActivatedRoute } from "@angular/router";
 import { AutocompleteAddress } from '../../autocomplete-address';
+import { isArray } from 'util';
 // import { nearbyListClickEvent } from './search-nearby-list/search-nearby-list.component';
 
 @Component({
@@ -32,7 +34,7 @@ export class SearchComponent implements OnInit {
     opened = true;
 
     subscription: Subscription;
-
+    param_ucode: any;
     selectedAddress: Address;
     placeName: string;
     placeAddress: string;
@@ -49,6 +51,7 @@ export class SearchComponent implements OnInit {
 
     constructor(
         private http: HttpClient,
+        private route: ActivatedRoute,
         private dataVesselService: DataVesselService,
         private bkoiCloudService: BkoiCloudService,
         private dataBoatService: DataBoatService,
@@ -61,7 +64,10 @@ export class SearchComponent implements OnInit {
         // });
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.param_ucode = this.route.snapshot.paramMap.get("uCode");
+        (this.param_ucode != undefined)?this.getServerResponse(this.param_ucode, true):console.clear();
+    }
 
     // reverse Geo Map Event
     reverseGeoMapEvent(data: any) {
@@ -98,7 +104,11 @@ export class SearchComponent implements OnInit {
     }
 
     // Getting address id for geocoding
-    showDetails(place: any) {
+    showDetails(place: any, urlParam) {
+        (urlParam) ? place = place[0] : place = place;
+
+        console.log(place)
+
         this.dataVesselService.sendData(place);
         this.selectedAddress = place;
         const addressArray = place.new_address.split(',');
@@ -112,7 +122,7 @@ export class SearchComponent implements OnInit {
     }
 
     // Search AUTOCOMPLETE
-    getServerResponse(event) {
+    getServerResponse(event, urlParam) {
         this.isLoadingResult = true;
 
         this.http
@@ -135,9 +145,16 @@ export class SearchComponent implements OnInit {
                     });
 
                     this.searchResult = data.places;
+                    console.log(this.searchResult)
+
+                    if(urlParam){
+                        this.showDetails(data.places, urlParam)
+                    }
+                    
                 }
 
                 this.isLoadingResult = false;
+
                 // this.nearbyList = false;
             });
     }
@@ -161,4 +178,6 @@ export class SearchComponent implements OnInit {
     onFocused(e) {
         // do something when input is focused
     }
+
+
 }

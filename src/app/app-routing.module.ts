@@ -7,7 +7,10 @@ import { BarikoiApiComponent } from './components/barikoi-api/barikoi-api.compon
 import { BkoiAddressVerifyComponent } from './components/bkoi-address-verify/bkoi-address-verify.component';
 import { RupantorComponent } from './components/rupantor/rupantor.component';
 import { SearchComponent } from './components/search/search.component';
+
 import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+
 
 import { DevDashComponent } from './developer-dashboard/dev-dash/dev-dash.component'
 import { AccountComponent } from './developer-dashboard/account/account.component'
@@ -20,13 +23,15 @@ import { RoleGuardService as RoleGuard } from './services/role-guard.service'
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
-  { path: 'pricing', component: PricingComponent, canActivate: [AuthGuard]  },
+  { path: 'pricing', component: PricingComponent},
   { path: 'urban-engine', component: UrbanEngineComponent },
   { path: 'api', component: BarikoiApiComponent },
   { path: 'avy', component: BkoiAddressVerifyComponent },
-  { path: 'rupantor', component: RupantorComponent, canActivate: [RoleGuard]  },
+  { path: 'rupantor', component: RupantorComponent},
+  { path: 'search/:uCode', component: SearchComponent },
   { path: 'search', component: SearchComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
   {
     path: 'dev',
     component: DevDashComponent,

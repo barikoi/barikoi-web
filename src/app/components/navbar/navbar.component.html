@@ -17,12 +17,12 @@
         <button mat-menu-item routerLink="/urban-engine">
           Urban Engine
         </button>
-        <button mat-menu-item routerLink="/batch-geocode">
+        <!-- <button mat-menu-item routerLink="/batch-geocode">
           Batch Geocoding
-        </button>
+        </button> -->
       </mat-menu>
 
-      <button mat-button [matMenuTriggerFor]="industriesMenu">
+      <!-- <button mat-button [matMenuTriggerFor]="industriesMenu">
         Industries
       </button>
       <mat-menu #industriesMenu="matMenu" yPosition="below">
@@ -40,22 +40,36 @@
           Real Estate
         </button>
         <button mat-menu-item routerLink="/on-demand">On Demand</button>
-      </mat-menu>
+      </mat-menu> -->
 
       <button mat-button [matMenuTriggerFor]="developerMenu">
         Developer
       </button>
       <mat-menu #developerMenu="matMenu" yPosition="below">
-        <button mat-menu-item routerLink="/documentation">
-          Documentation
+        <button mat-menu-item>
+          <a style="color:black"  href="https://docs.barikoi.com/docs/intro/" target="_blank">Documentation</a>
         </button>
-        <button mat-menu-item routerLink="/tutorial">Tutorial</button>
+        <button mat-menu-item>
+          <a style="color:black"  href="https://medium.com/@barikoibd" target="_blank">Tutorial</a>
+
+        </button>
       </mat-menu>
 
-      <button mat-button routerLink="/bariscore">BariScore</button>
+      <!-- <button mat-button routerLink="/bariscore">BariScore</button> -->
       <button mat-button routerLink="/pricing">Pricing</button>
       <button mat-button routerLink="/search">Search</button>
-      <button mat-button routerLink="/login">Login</button>
+      <!-- <button mat-button routerLink="/login">Login</button> -->
+      
+      <button mat-button [matMenuTriggerFor]="accountMenu">
+        Account
+      </button>
+      <mat-menu #accountMenu="matMenu" yPosition="below">
+        <button mat-menu-item routerLink="/dev/analytics" *ngIf="isLoggedin">
+          Dashboard
+        </button>
+        <button mat-menu-item routerLink="/login" *ngIf="!isLoggedin">Login</button>
+        <button mat-menu-item routerLink="/signup" *ngIf="!isLoggedin">Signup</button>
+      </mat-menu>
     </mat-toolbar-row>
   </mat-toolbar>
 </div>

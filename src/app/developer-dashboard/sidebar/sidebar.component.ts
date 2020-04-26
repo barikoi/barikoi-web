@@ -7,6 +7,9 @@ import {
   Event,
 } from '@angular/router';
 
+import { AuthService } from '../../services/auth.service'
+
+
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -14,11 +17,17 @@ import {
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private router: Router) {
+  constructor(public router: Router, private authService: AuthService) {
   }
+
   
 
   ngOnInit() {
+  }
+
+  public gologout(): void{
+    this.authService.logout() 
+    
   }
 
 }

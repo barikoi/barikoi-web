@@ -41,11 +41,11 @@ export class SearchMapComponent implements OnInit {
     // @Input() userClickOnNearbyList: any;
 
     options = {
-        layers: tileLayer('https://map.barikoi.com/styles/osm-bright/{z}/{x}/{y}.png', {
+        layers: tileLayer('https://map.barikoi.com/styles/osm-liberty/{z}/{x}/{y}.png', {
             maxZoom: 18,
             attribution: '...',
         }),
-        zoom: 18,
+        zoom: 13,
         zoomControl: false,
         center: latLng(23.777176, 90.399452),
     };

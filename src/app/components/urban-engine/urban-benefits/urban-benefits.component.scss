@@ -34,8 +34,19 @@
         padding-right: 2em;
         padding-top: 3em;
     }
+    // button {
+    //     margin-top: 2.5em;
+    //     margin-right: 11.5%;
+    // }
     button {
         margin-top: 2.5em;
         margin-right: 11.5%;
+
+        a{
+            color: white;
+            text-align: center;
+            font-size: .8em;
+            font-weight: 500;
+        }
     }
 }

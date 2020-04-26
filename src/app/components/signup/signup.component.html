@@ -1,0 +1,47 @@
+<mat-card>
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <h2>Sign up</h2>
+        <mat-error *ngIf="Signupvalid">
+          The username and password were not recognised
+        </mat-error>
+       
+        <mat-form-field class="full-width-input">
+          <input matInput placeholder="User Name" formControlName="username" required>
+          <mat-error>
+            Please provide User Name
+          </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field class="full-width-input">
+            <input matInput placeholder="Email" formControlName="email" required>
+            <mat-error>
+              Please provide a valid email address
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input">
+            <input matInput placeholder="Phone Number" formControlName="phone" required>
+            <mat-error>
+              Please provide a valid Phone Number
+            </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field class="full-width-input">
+          <input matInput  placeholder="Password" formControlName="password" required required [type]="hide1 ? 'text' : 'password'">
+          <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility' : 'visibility_off'}}</mat-icon>
+
+          <mat-error>
+            Please provide password
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary">Signup</button>
+      </form>
+
+      <small>
+        <br>
+        Already a Member? <a routerLink="/login">Signin</a>
+        </small>
+    </mat-card-content>
+  </mat-card>

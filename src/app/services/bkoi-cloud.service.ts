@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { KEY_GEN, UPDATE_PASSWORD } from '../app.constants';
+import { KEY_GEN, UPDATE_PASSWORD, API_ANALYTCS, RESET_PASSWORD} from '../app.constants';
 
 import { Observable } from 'rxjs';
 
@@ -36,6 +36,18 @@ export class BkoiCloudService {
       'newPass': np
     }
     return this.http.post(`${UPDATE_PASSWORD}`, data)
+  }
+
+  public get_user_api_data(){
+    return this.http.get(`${API_ANALYTCS}`)
+  }
+
+
+  public send_email_pass_recovery(email: String){
+    let data = {
+      'email': email,
+    }
+    return this.http.post(`${RESET_PASSWORD}`, data)
   }
 
 }
