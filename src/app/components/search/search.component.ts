@@ -95,11 +95,17 @@ export class SearchComponent implements OnInit {
             )
             .subscribe(nearbyPlaces => {
 
-                // sending nearby places list to SearchNearbyListComponent component
-                this.dataBoatService.sendData(nearbyPlaces);
+                console.log(nearbyPlaces)
+                if(nearbyPlaces['Message'] == 'Not Found'){
 
-                // sending nearby places list to SearchMapComponent component
-                this.dataVesselService.sendData(nearbyPlaces);
+                }
+                else{
+                    // sending nearby places list to SearchNearbyListComponent component
+                    this.dataBoatService.sendData(nearbyPlaces);
+
+                    // sending nearby places list to SearchMapComponent component
+                    this.dataVesselService.sendData(nearbyPlaces);
+                }
             });
     }
 

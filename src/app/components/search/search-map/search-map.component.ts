@@ -58,6 +58,7 @@ export class SearchMapComponent implements OnInit {
     nearbyListSubscription: Subscription;
     markers: Marker[] = [];
     map: Map;
+    current_marker = {}
 
     constructor(
         private dataVesselService: DataVesselService,
@@ -101,6 +102,11 @@ export class SearchMapComponent implements OnInit {
                 }),
             });
 
+            this.current_marker = {
+                'lat' : e.latlng.lat,
+                'lng' : e.latlng.lng
+            }
+
             let revGeoAddress: any;
 
             // reverse geo code response
@@ -133,35 +139,80 @@ export class SearchMapComponent implements OnInit {
         if (this.markers.length > 0) {
             this.markers = [];
         }
-        // const addrLatLng = [ parseFloat(place.latitude), parseFloat(place.longitude)];
-
-        const newMarker = marker(
-            [parseFloat(place.latitude), parseFloat(place.longitude)],
-            {
-                icon: icon({
-                    iconSize: [25, 41],
-                    iconAnchor: [13, 41],
-                    iconUrl: DEFAULT_MAKRER,
-                    shadowUrl: MARKER_SHADOW,
-                    popupAnchor: [0, -30],
-                }),
+        if(place.latitude){
+            this.current_marker = {
+                'lat' : place.latitude,
+                'lng' : place.longitude
             }
-        ).bindPopup(place.Address);
+            const tempmarker = marker(
+                [parseFloat(place.latitude), parseFloat(place.longitude)],
+                {
+                    icon: icon({
+                        iconSize: [25, 41],
+                        iconAnchor: [13, 41],
+                        iconUrl: DEFAULT_MAKRER,
+                        shadowUrl: MARKER_SHADOW,
+                        popupAnchor: [0, -30],
+                    }),
+                }
+            ).bindPopup(place.Address);
+            
+            this.markers.push(tempmarker);
 
-        // this.zone.run( () => {
-        //     this.options.zoom = 5;
-        //     this.options.center = latLng(
-        //         parseFloat(place.latitude),
-        //         parseFloat(place.longitude)
-        //     );
-        // });
 
-        this.markers.push(newMarker);
+            this.map.setView(
+                [parseFloat(place.latitude), parseFloat(place.longitude)],
+                this.map.getZoom()
+            );
 
-        this.map.setView(
-            [parseFloat(place.latitude), parseFloat(place.longitude)],
-            this.map.getZoom()
-        );
+        }
+        // const addrLatLng = [ parseFloat(place.latitude), parseFloat(place.longitude)];
+        else{
+
+            const tempmarker = marker(
+                [parseFloat(this.current_marker['lat']), parseFloat(this.current_marker['lng'])],
+                {
+                    icon: icon({
+                        iconSize: [25, 41],
+                        iconAnchor: [13, 41],
+                        iconUrl: DEFAULT_MAKRER,
+                        shadowUrl: MARKER_SHADOW,
+                        popupAnchor: [0, -30],
+                    }),
+                }
+            ).bindPopup('');
+            
+            this.markers.push(tempmarker);
+
+            const newMarker = marker(
+                [parseFloat(place[0].latitude), parseFloat(place[0].longitude)],
+                {
+                    icon: icon({
+                        iconSize: [25, 41],
+                        iconAnchor: [13, 41],
+                        iconUrl: GREEN_MAKRER,
+                        shadowUrl: MARKER_SHADOW,
+                        popupAnchor: [0, -30],
+                    }),
+                }
+            ).bindPopup(place[0].Address);
+
+
+            // this.zone.run( () => {
+            //     this.options.zoom = 5;
+            //     this.options.center = latLng(
+            //         parseFloat(place.latitude),
+            //         parseFloat(place.longitude)
+            //     );
+            // });
+
+            this.markers.push(newMarker);
+
+            this.map.setView(
+                [parseFloat(place[0].latitude), parseFloat(place[0].longitude)],
+                this.map.getZoom()
+            );
+        }
     }
 
     // adding multiple marker
@@ -170,6 +221,20 @@ export class SearchMapComponent implements OnInit {
 
         if (this.markers.length > 1) {
             this.markers = [];
+            const tempmarker = marker(
+                [parseFloat(this.current_marker['lat']), parseFloat(this.current_marker['lng'])],
+                {
+                    icon: icon({
+                        iconSize: [25, 41],
+                        iconAnchor: [13, 41],
+                        iconUrl: DEFAULT_MAKRER,
+                        shadowUrl: MARKER_SHADOW,
+                        popupAnchor: [0, -30],
+                    }),
+                }
+            ).bindPopup('');
+            
+            this.markers.push(tempmarker);
         }
 
         // this.markers = this.addressToMarkerNearby(places);

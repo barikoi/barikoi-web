@@ -13,6 +13,7 @@ export class SearchNearbyListComponent implements OnInit {
 
     subscription: Subscription;
     nearbyPlaces = [];
+    showlist = false;
 
         //  Nearby Place List click event
         emitNearbyListClick(address: any) {
@@ -25,7 +26,15 @@ export class SearchNearbyListComponent implements OnInit {
     constructor(private dataBoatService: DataBoatService, private nearbyListFocusService: NearbyListFocusService) {
         this.subscription = this.dataBoatService.getData().subscribe(e => {
             if (e) {
-                this.nearbyPlaces = e;
+                if(e.Message =='Not Found'){
+                    this.showlist = false
+                    // console.log(dataBoatService.get_current_marker())
+                    // this.nearbyPlaces.push(dataBoatService.get_current_marker())
+                }
+                else {
+                    this.nearbyPlaces = e;
+                    this.showlist = true
+                }
             }
         });
     }
