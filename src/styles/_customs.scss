@@ -46,12 +46,30 @@
     }
   }
 
+  .lt-md-box-card {
+    width: 290px;
+    margin-bottom: 20px;
+
+    .uneven-img {
+      max-height: 130px;
+    }
+
+    img {
+      max-height: 200px;
+      max-width: 100%;
+    }
+  }
+
   .bkoi-home-left-content {
     padding-left: 12em;
   }
 
   .bkoi-home-right-content {
     padding-left: 5em;
+  }
+
+  .lt-md-bkoi-home-right-content{
+    padding-left: 0em;
   }
 
 // home
@@ -97,9 +115,9 @@
   padding-right: 2em;
 }
 
-.bkoi-grid-content-left {
+// .bkoi-grid-content-left {
 
-}
+// }
 
 .bkoi-grid-img-left, .bkoi-grid-content-right {
   padding-left: 3em;

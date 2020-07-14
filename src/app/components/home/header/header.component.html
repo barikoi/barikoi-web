@@ -1,25 +1,27 @@
 <div class="header component">
-  <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start center" >
-    <div fxFlex.lt-sm="100" fxFlex="54" fxLayoutAlign="center center">
+  <div fxLayout="row" fxLayout.lt-sm="column" fxLayout.lt-md="row" fxLayoutAlign="start center"  fxFlexFill >
+    <div fxFlex.lt-sm="100" fxFlex="54" fxFlex.lt-md="54" fxLayout.lt-sm="row" fxLayoutAlign="end center" class="bkoi-app">
       <img
       src="assets/Group 1880@2x.jpeg"   alt="bkoi-home-dhaka" srcset="">
     </div>
 
-    <div fxFlex.lt-sm="100" fxFlex="46" fxLayoutAlign="space-evenly center" class="header-form">
-      <div fxLayout="column" fxLayoutAlign="center start">
-        <h1 class="header-title  header-p1">Mapping Bangladesh</h1>
-        <h1 class="header-title  header-p2">Through local lenses</h1>
-        <!-- <p>
-          <mat-form-field appearance="outline">
-            <input matInput placeholder="Search a location">
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-          </mat-form-field>
-        </p> -->
-        <div class="bkoi-search" routerLink="/search">
-          <form  (click)="gotosearch()">
-            <Button >Search a location</Button>
-            <mat-icon matSuffix>search</mat-icon>
-          </form>
+    <div fxFlex.lt-sm="100" fxFlex="46" fxFlex.lt-md="46" class="header-form">
+      <div class="bkoi-grid-content-right">
+        <div fxLayout="column" fxLayoutAlign="center center" ngClass.lt-md='lt-md-custom' ngClass.lt-lg='lt-md-custom'>
+          <h1 class="header-title  header-p1">Enabling Location Experience</h1>
+          <h1 class="header-title  header-p2">For Bangladesh & Beyond</h1>
+          <!-- <p>
+            <mat-form-field appearance="outline">
+              <input matInput placeholder="Search a location">
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+          </p> -->
+          <div class="bkoi-search" routerLink="/search">
+            <form ngClass.lt-md="lt-md-form" ngClass.lt-lg="lt-md-form"  (click)="gotosearch()">
+              <Button >Search a location</Button>
+              <mat-icon matSuffix>search</mat-icon>
+            </form>
+          </div>
         </div>
       </div>
     </div>

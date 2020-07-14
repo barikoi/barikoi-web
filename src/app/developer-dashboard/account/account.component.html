@@ -1,7 +1,7 @@
 <div class="account-dev component">
-    <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="center">
+    <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="center center">
   
-      <div fxLayout="column" fxLayoutAlign="center center">
+      <div fxLayout="column" fxLayoutAlign="center center"fxLayout="column" fxLayoutAlign="center center" class="bkoi-app">
         
         <div>
             <h4>Account Overview </h4>
@@ -12,9 +12,15 @@
   
     </div>
 
-    <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="10px" fxLayoutAlign="start">
+    <div fxLayout="row" fxLayout.lt-sm="column" fxLayout.lt-md="row" fxLayoutAlign="start center" fxFlexFill>
   
-        <div fxFlex.lt-sm="100" fxFlex="50%" fxLayout.lt-sm="row" fxLayoutAlign="center">
+        <div fxFlex.lt-sm="100"
+          fxFlex="50"
+          fxLayout.lt-sm="row"
+          fxFlex.lt-md="50"
+          fxLayoutAlign="center center"
+          class="bkoi-app"
+        >
             <mat-card class="example-card">
                 <mat-card-header>
                   <div mat-card-avatar class="example-header-image"></div>
@@ -34,7 +40,14 @@
           <!-- lodsdfsf -->
         </div>
 
-        <div fxFlex.lt-sm="100" fxFlex="50%" fxLayout.lt-sm="row" fxLayoutAlign="center">
+        <div 
+          fxFlex.lt-sm="100"
+          fxFlex="50"
+          fxLayout.lt-sm="row"
+          fxFlex.lt-md="50"
+          fxLayoutAlign="center center"
+          class="bkoi-app"
+        >
             <mat-card class="example-card">
                 <mat-card-header>
                   <div mat-card-avatar class="example-header-image"></div>

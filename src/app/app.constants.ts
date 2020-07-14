@@ -10,4 +10,4 @@ export const DEV_API_KEY = baseAPIUrl+'auth/business/CurrentActiveKey';
 export const KEY_GEN = baseAPIUrl+'auth/business/keygen/';
 export const UPDATE_PASSWORD = baseAPIUrl+'auth/UpdatePass';
 export const API_ANALYTCS = baseAPIUrl+'developer/analytics';
-export const RESET_PASSWORD = 'https://admin.barikoi.xyz/v1/auth/password/reset'
+export const RESET_PASSWORD = baseAPIUrl+'auth/password/reset'

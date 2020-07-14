@@ -1,14 +1,14 @@
 <div class="bkoi-developer component">
-  <div fxLayout="row" fxLayout.lt-sm="column">
+  <div fxLayout="row" fxLayout.lt-sm="column" fxLayout.lt-md="row" fxLayoutAlign="start center"  fxFlexFill>
 
 
-    <div fxFlex.lt-sm="100" fxFlex="50" class="bkoi-app">
+    <div fxFlex.lt-sm="100" fxFlex="50" fxFlex.lt-md="46" fxLayout.lt-sm="row" fxLayoutAlign="center center" class="bkoi-app">
 
       <div fxLayout="row" fxLayoutAlign="start center">
 
         <div class="bkoi-home-left-content home-development">
           <div fxLayout="column" fxLayoutAlign="space-evenly start">
-            <div class="dev-direction">
+            <div class="dev-direction" ngClass.lt-md='lt-md-custom'>
               <mat-divider></mat-divider>
 
               <h3 class="">Barikoi for Developers </h3>
@@ -17,7 +17,7 @@
 
             </div>
 
-            <mat-card class="box-card">
+            <mat-card ngClass.lt-md='lt-md-box-card' ngClass.lt-lg='lt-md-box-card' class="box-card">
               <div fxLayout="row" fxLayoutAlign="space-evenly center">
 
                 <div class="box">
@@ -27,7 +27,7 @@
 
                 <div fxLayout="column">
 
-                  <div class="bus-content-text">
+                  <div class="bus-content-text" ngClass.lt-md='lt-md-custom'>
                     <legend class="">Start for free</legend>
                     <p class="p-light-smaller">
                       Get 30,000 API Calls for FREE / <br> Month. Pay per 100 call 15 taka <br> afterwards !
@@ -49,37 +49,39 @@
     </div>
 
     <!-- right panel -->
-    <div fxFlex.lt-sm="100" fxFlex="50" class="bus-content">
-
-      <div fxLayout="row" fxLayoutAlign="start center">
-        <div class="bkoi-home-right-content">
-          <div fxLayout="column" fxLayoutAlign="start start">
-
-            <h1 class="">
+    <div fxFlex.lt-sm="100" fxFlex="50" fxFlex.lt-md="54" class="bus-content">
+      <div class="bkoi-grid-content-right">
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <div class="bkoi-home-right-content">
+            <div fxLayout="column" fxLayoutAlign="start start" ngClass.lt-md='lt-md-custom'>
   
-              Better mapping, <br> Navigation and search <br> Experiences across <br> Platforms.
-            </h1>
-  
-            <p class="p-light-default">
-              Over 4 million people in Bangladesh <br>
-             touch Barikoi products every month.
-            </p>
-
-            <div fxLayout="row" fxLayoutAlign="start start">
-              <a href="https://play.google.com/store/apps/details?id=com.barikoi.barikoidemo&hl=en" target="_blank"><button
-                class="bkoi-btn bkoi-btn-info btn-info-circle animatedBtn animated fadeInRight faster"
-                >
-               Barikoi Demo App
-                </button></a>
+              <h1 class="">
     
-              <a routerLink="/signup">
-                <button class="bkoi-btn bkoi-btn-primary btn-primary-circle" >GET STARTED!</button>
-              </a>
-            </div>
+                Better mapping, <br> Navigation and search <br> Experiences across <br> Platforms.
+              </h1>
+    
+              <p class="p-light-default">
+                Over 4 million people in Bangladesh <br>
+               touch Barikoi products every month.
+              </p>
   
+              <div fxLayout="row" fxLayout.lt-sm="column" fxLayout.lt-md="column"  fxLayout.lt-lg="column" fxLayoutAlign="space-evenly center">
+                <a href="https://play.google.com/store/apps/details?id=com.barikoi.barikoidemo&hl=en" target="_blank" ><button
+                  [ngClass.lt-md]="['lt-md-bkoi-btn', 'lt-md-bkoi-btn-info', '.lt-md-btn-info-circle']" class="bkoi-btn bkoi-btn-info btn-info-circle animatedBtn animated fadeInRight faster"
+                  >
+                 Barikoi Demo App
+                  </button></a>
+      
+                <a routerLink="/signup">
+                  <button [ngClass.lt-md]="['lt-md-bkoi-btn', 'lt-md-bkoi-btn-primary', '.lt-md-btn-primary-circle']" class="bkoi-btn bkoi-btn-primary btn-primary-circle" >GET STARTED!</button>
+                </a>
+              </div>
+    
+            </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>

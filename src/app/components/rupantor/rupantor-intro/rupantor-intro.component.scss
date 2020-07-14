@@ -2,7 +2,8 @@
 @import './rupantor-intro.animation.scss';
 
 .rupantor-intro {
-
+    
+    margin-top: -9.9em;
 
     .brief {
         padding-top: 6em;
@@ -52,7 +53,7 @@
     .box-3 {
         color: #ffffff;
         padding: 0 5em 0 0;
-        width: 600px;
+        width: 40em;
         border-radius: 0px 0px 0px 130px;
 
         .content {
@@ -71,6 +72,64 @@
             text-align: right;
             display: block;
             line-height: 100px;
+            color: $grey;
+            opacity: 20%;
+        }
+    }
+
+    .lt-md-box-1,
+    .lt-md-box-2,
+    .lt-md-box-3 {
+        color: #ffffff;
+        padding: 0 3em 0 0;
+        width: 26.7em;
+        border-radius: 0px 0px 0px 118px;
+
+        .content {
+            padding-left: 3em;
+            .block {
+                padding-top: 0.1em;
+                padding-left: 0.3em;
+            }
+        }
+
+        &:after {
+            width: 100%;
+            height: 100%;
+            font-family: 'Material Icons', sans-serif;
+            font-size: 3em;
+            text-align: right;
+            display: block;
+            line-height: 80px;
+            color: $grey;
+            opacity: 20%;
+        }
+    }
+
+    .lt-lg-box-1,
+    .lt-lg-box-2,
+    .lt-lg-box-3 {
+        color: #ffffff;
+        padding: 0 3em 0 0;
+        width: 34em;
+        border-radius: 0px 0px 0px 124px;
+
+        .content {
+            padding-left: 4em;
+            .block {
+                padding-top: 0.1em;
+                padding-left: 0.3em;
+            }
+        }
+
+        &:after {
+            width: 100%;
+            height: 100%;
+            font-family: 'Material Icons', sans-serif;
+            font-size: 4em;
+            text-align: right;
+            display: block;
+            line-height: 90px;
             color: $grey;
             opacity: 20%;
         }

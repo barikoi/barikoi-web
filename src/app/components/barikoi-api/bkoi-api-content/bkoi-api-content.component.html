@@ -1,10 +1,10 @@
 <div class="urban-benefits component">
     <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="center center">
         <div fxLayout="column" fxLayoutAlign="center center" class="bkoi-app">
-            <div>
+            <div ngClass.lt-md='lt-md-custom'>
                 <h1 class="op-90">With BariKoi API</h1>
             </div>
-            <div>
+            <div ngClass.lt-md='lt-md-custom'>
                 <p class="p-light-default">
                     Improve user experience and drive engagement for your
                     product.
@@ -14,11 +14,12 @@
         </div>
     </div>
 
-    <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="center start">
+    <div fxLayout="row" fxLayout.lt-sm="column" fxLayout.lt-md="row" fxLayoutAlign="start center" fxFlexFill>
         <div
             fxFlex.lt-sm="100"
             fxFlex="50"
             fxLayout.lt-sm="row"
+            fxFlex.lt-md="60"
             fxLayoutAlign="end center"
             class="bkoi-app"
         >
@@ -26,7 +27,7 @@
             <!-- lodsdfsf -->
         </div>
 
-        <div fxFlex.lt-sm="100" fxFlex="100" class="">
+        <div fxFlex.lt-sm="100" fxFlex="50" class="" fxFlex.lt-md="40">
             <div fxLayout="column" fxLayoutAlign="start start">
                 <div class="bkoi-grid-content-right accordion">
                     <mat-accordion class="mat-expander">
@@ -73,7 +74,7 @@
                 </div>
             </div>
 
-            <div fxLayout="row" fxLayoutAlign="end center">
+            <div fxLayout="row" fxLayoutAlign="end end">
                 <button routerLink="/signup"
                     class="bkoi-btn bkoi-btn-primary btn-primary-circle"
                 >

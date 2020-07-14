@@ -56,6 +56,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { PriceTableComponent } from './components/pricing/price-table/price-table.component';
 import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
 import { MapboxSearchComponent } from './components/search/mapbox-search/mapbox-search.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { PricingCardComponent } from './components/pricing/pricing-card/pricing-card.component';
 
 @NgModule({
     declarations: [
@@ -94,6 +96,8 @@ import { MapboxSearchComponent } from './components/search/mapbox-search/mapbox-
         PriceTableComponent,
         ForgotPassComponent,
         MapboxSearchComponent,
+        PrivacyPolicyComponent,
+        PricingCardComponent,
     ],
     imports: [
         FormsModule,

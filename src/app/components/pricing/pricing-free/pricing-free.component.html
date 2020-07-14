@@ -4,7 +4,7 @@
 
     <div fxFlex="100" class="bkoi-app">
 
-      <div fxLayout="column" fxLayoutAlign="space-evenly center" fxLayoutGap="30px">
+      <div fxLayout="column" fxLayoutAlign="space-evenly center" fxLayoutGap="30px" ngClass.lt-md='lt-md-custom'>
 
         <h1>Start for Free</h1>
         <p class="text-center">
@@ -32,7 +32,7 @@
         </div>
 
         <a routerLink="/signup">
-          <button class="bkoi-btn bkoi-btn-primary btn-primary-circle">Ger Started</button>
+          <button [ngClass.lt-md]="['lt-md-bkoi-btn', 'lt-md-bkoi-btn-primary', '.lt-md-btn-info-primary']" class="bkoi-btn bkoi-btn-primary btn-primary-circle">Ger Started</button>
 
         </a>
 

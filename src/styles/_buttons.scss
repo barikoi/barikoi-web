@@ -73,6 +73,12 @@
       background: linear-gradient(to right, $neon-green, $lime-green);
     }
   }
+
+  .lt-md-form{
+    width: 18em;
+
+    @extend form
+  }
 }
 
 // Barikoi Buttons
@@ -89,6 +95,12 @@
   &:active {
       outline: none;
   }
+}
+
+.lt-md-bkoi-btn {
+  font-weight: 500;
+  margin: 6px;
+  @extend .bkoi-btn;
 }
 
 .bkoi-btn-primary {
@@ -126,41 +138,24 @@
   }
 }
 
-.bkoi-btn-info {
-
-  display: inline-block;
-  -webkit-font-smoothing: antialiased;
-  position: relative;
-  padding: 0.8em 4.0em .8em 2.2em;
-  // background: linear-gradient(to right, $neon-green, $lime-green);
+.lt-md-bkoi-btn-primary{
   height: 3em;
-  border: none;
-  border-radius: 63px;
-  color: white;
-  transition: .2s;
-
-  background: transparent linear-gradient(94deg, $color-block-violet 0%, $link 97%) 0% 0% no-repeat padding-box;
-  box-shadow: 0px 4px 16px #415D6F29;
-  width: 15em;
-
-  &:before,
-  &:after {     content: "\e315";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    padding-top: inherit;
-    padding-bottom: inherit;
-    width: 2.5em;
-    font-family: 'Material Icons', sans-serif;
-    font-size: 1.2em;
-    text-align: center;
-
-    transition: .2s;
-    transform-origin: 50% 60%;
-  }
+  width: 12em;
+  padding: 0.9em 2.6em 2em 0.6em;
+  @extend .bkoi-btn-primary;
 }
 
+.bkoi-btn-info {
+  background: transparent linear-gradient(94deg, $color-block-violet 0%, $link 97%) 0% 0% no-repeat padding-box;
+  @extend .bkoi-btn-primary;
+}
+
+.lt-md-bkoi-btn-info{
+  height: 3em;
+  width: 12em;
+  padding: 0.9em 2.6em 2em 0.6em;
+  @extend .bkoi-btn-info;
+}
 
 
 
@@ -188,26 +183,21 @@
   }
 }
 
-.btn-info-circle {
-  &:after {
-    content: "\e5e1";
-    background: white;
-    color: $link;
-    border-radius: 64px;
-    box-sizing: border-box;
-    padding: 8px 0px;
-    width: 34px;
-    height: 32.5px;
-    position: absolute;
-    top: 7px;
-    right: 8px;
-    text-align: center;
-    font-size: 1em;
-    font-weight: 300;
-  }
+.lt-md-btn-primary-circle{
+  padding: 5px 0px;
+  width: 26px;
+  height: 24.5px;
+  @extend .btn-primary-circle
+}
 
-  &:hover:after {
-    -webkit-animation: none;
-    animation: none;
-  }
+.btn-info-circle {
+    color: $link;
+    @extend .btn-primary-circle;
+}
+
+.lt-md-btn-info-circle{
+  padding: 5px 0px;
+  width: 26px;
+  height: 24.5px;
+  @extend .btn-info-circle;
 }

@@ -55,8 +55,18 @@
         </button>
       </mat-menu>
 
+      <button mat-button [matMenuTriggerFor]="pricingMenu">
+        Pricing
+      </button>
+      <mat-menu #pricingMenu="matMenu" yPosition="below">
+        <button mat-menu-item routerLink="/pricing">
+          Location API Pricing
+        </button>
+      </mat-menu>
+      
+
       <!-- <button mat-button routerLink="/bariscore">BariScore</button> -->
-      <button mat-button routerLink="/pricing">Pricing</button>
+      <!-- <button mat-button routerLink="/pricing">Pricing</button> -->
       <button mat-button routerLink="/search">Search</button>
       <!-- <button mat-button routerLink="/login">Login</button> -->
       

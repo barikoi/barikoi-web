@@ -1,18 +1,18 @@
 <div class="bkoi-bus component">
-  <div fxLayout="row" fxLayout.lt-sm="column">
+  <div fxLayout="row" fxLayout.lt-sm="column" fxLayout.lt-md="row" fxLayoutAlign="start center"  fxFlexFill>
 
     <!-- left panel  -->
-    <div fxFlex.lt-sm="100" fxFlex="50" class="bkoi-app">
+    <div fxFlex.lt-sm="100" fxFlex="50" fxFlex.lt-md="46" fxLayout.lt-sm="row" fxLayoutAlign="center center" class="bkoi-app">
 
       <div fxLayout="row" fxLayoutAlign="start center">
 
         <div class="bkoi-home-left-content home-business">
-          <div fxLayout="column" fxLayoutAlign="space-evenly start">
+          <div fxLayout="column" fxLayoutAlign="space-evenly start" ngClass.lt-md='lt-md-custom'>
             <h1 class="">
               Combining <br> Mapping and data to <br> build better cities.
             </h1>
   
-            <div class="bus-direction">
+            <div class="bus-direction" ngClass.lt-md='lt-md-custom'>
               <mat-divider></mat-divider>
   
               <h3 class="">Barikoi for Business </h3>
@@ -35,12 +35,13 @@
     </div>
 
     <!-- right panel -->
-    <div fxFlex.lt-sm="100" fxFlex="50" class="bus-content"> 
+    <div fxFlex.lt-sm="100" fxFlex="50" fxFlex.lt-md="54" class="bus-content"> 
 
+      <div class="bkoi-grid-content-right">
         <div fxLayout="column" fxLayoutAlign="start start">
 
-          <div class="bkoi-home-right-content">
-            <mat-card class="box-card">
+          <div ngClass.lt-md="lt-md-bkoi-home-right-content" class="bkoi-home-right-content">
+            <mat-card ngClass.lt-md='lt-md-box-card' ngClass.lt-lg='lt-md-box-card' class="box-card">
               <div fxLayout="row" fxLayoutAlign="space-evenly center">
     
                   <div class="box">
@@ -50,7 +51,7 @@
             
                     <div fxLayout="column" >
             
-                      <div class="bus-content-text">
+                      <div class="bus-content-text" ngClass.lt-md='lt-md-custom' >
                         <legend class="">Smart City</legend>
                         <p class="p-light-smaller">Detailed data to improve operations, <br>
                           engage residents and support local <br> communities.
@@ -64,10 +65,10 @@
                 </div>
           </mat-card>
     
-          <mat-card class="box-card">
+          <mat-card ngClass.lt-md='lt-md-box-card' ngClass.lt-lg='lt-md-box-card' class="box-card">
               <div fxLayout="row" fxLayoutAlign="space-evenly center">
                     <div fxLayout="column" fxLayoutAlign="space-evenly center">
-                      <div class="bus-content-text">
+                      <div class="bus-content-text" ngClass.lt-md='lt-md-custom' >
                         <legend class="">Logistics Automation</legend>
                         <p class="p-light-smaller">Amaze your users with precise <br> routing and planning. Grow your <br> business with us.
                         </p>
@@ -82,7 +83,7 @@
                 </div>
           </mat-card>
     
-          <mat-card class="box-card">
+          <mat-card ngClass.lt-md='lt-md-box-card' ngClass.lt-lg='lt-md-box-card' class="box-card">
               <div fxLayout="row" fxLayoutAlign="space-evenly center">
     
                   <div class="box ">
@@ -91,7 +92,7 @@
             
                     <div fxLayout="column" fxLayoutAlign="space-evenly center">
             
-                      <div class="bus-content-text">
+                      <div class="bus-content-text" ngClass.lt-md='lt-md-custom'>
                         <legend class="">Customer Mapping</legend>
                         <p class="p-light-smaller">Enabling Financial institutions like
                            banks to take data driven <br> decisions
@@ -107,6 +108,7 @@
           </div>
           
           </div>
+      </div>
       
     </div>
   </div>

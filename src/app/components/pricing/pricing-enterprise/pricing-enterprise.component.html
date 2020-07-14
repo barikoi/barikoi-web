@@ -5,11 +5,11 @@
 
     <div fxFlex="100" class="bkoi-app">
 
-      <div class="row" fxLayoutAlign="space-evenly center" >
+      <div class="row" fxLayoutAlign="space-evenly center" ngClass.lt-md='lt-md-custom'>
         <p class="p-light-small enterprise-title">For Enterprise</p>
     </div>
 
-      <div fxLayout="column" fxLayoutAlign="space-evenly center" fxLayoutGap="30px">
+      <div fxLayout="column" fxLayoutAlign="space-evenly center" fxLayoutGap="30px" ngClass.lt-md='lt-md-custom'>
 
         <h1>Pricing for Enterprise</h1>
         <p class="text-center">
@@ -37,7 +37,7 @@
         </div>
 
         <a href="mailto:hello@barikoi.com?Subject=Barikoi%20API%20Query" target="_top">
-          <button class="bkoi-btn bkoi-btn-primary btn-primary-circle" routerLink="">CONTACT SALES</button>
+          <button [ngClass.lt-md]="['lt-md-bkoi-btn', 'lt-md-bkoi-btn-info', '.lt-md-btn-info-circle']" class="bkoi-btn bkoi-btn-info btn-info-circle animatedBtn animated fadeInRight faster"><span style="color: white;">CONTACT SALES</span></button>
 
         </a>
       </div>

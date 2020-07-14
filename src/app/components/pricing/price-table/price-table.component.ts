@@ -7,7 +7,7 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {packege_name: 'STARTUP', price: '2500 BDT', limit: '100000 call', additional: '0.1 BDT'},
+  {packege_name: 'STARTUP', price: '2500 BDT', limit: '75000 call', additional: '0.1 BDT'},
   {packege_name: 'BUSINESS', price: '10000 BDT', limit: '400000 call', additional: '0.075 BDT'},
   {packege_name: 'GROWTH', price: '25000 BDT', limit: '1000000 call', additional: '0.05 BDT'},
 

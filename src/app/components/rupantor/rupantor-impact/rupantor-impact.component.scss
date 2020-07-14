@@ -19,10 +19,17 @@
         font-weight: 500;
     }
     img {
-        max-height: 300px;
+        max-height: 20em;
         padding-right: 2em;
         padding-top: 3em;
     }
+    
+    .lt-md-img{
+        max-height: 14em;
+        padding-right: 1.3em;
+        padding-top: 2.3em;
+    }
+
     button {
         margin-top: 2.5em;
         margin-right: 12%;

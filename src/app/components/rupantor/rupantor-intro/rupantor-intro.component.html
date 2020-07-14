@@ -1,13 +1,9 @@
 <div class="rupantor-intro component">
-    <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start start">
+    <div fxLayout="row" fxLayout.lt-sm="column" fxLayout.lt-md="row" fxLayoutAlign="start start" fxFlexFill>
         
         <!-- animation content  -->
         <div
-            fxFlex.lt-sm="100"
-            fxFlex="50"
-            fxLayout.lt-sm="row"
-            fxLayoutAlign="start start"
-            class="bkoi-app"
+        fxFlex.lt-sm="100" fxFlex="54" fxFlex.lt-md="48" fxLayout.lt-sm="row" fxLayoutAlign="start start" class="bkoi-app"
         >
 
         <!-- first steps of the animations content -->
@@ -17,7 +13,7 @@
                 [ngClass]="[story1 ? 'show-flex-column' : 'hide-flex-column']"
             >
                 <div fxLayout="column">
-                    <div class="box-1">
+                    <div ngClass.lt-md="lt-md-box-1" ngClass.lt-lg="lt-lg-box-1" class="box-1">
                         <div class="content">
                             <div fxLayout="row" fxLayoutGap="20px">
                                 <div fxFlex="10" class="block">
@@ -49,7 +45,7 @@
                         </div>
                     </div>
 
-                    <div class="box-2">
+                    <div ngClass.lt-md="lt-md-box-2" ngClass.lt-lg="lt-lg-box-2" class="box-2">
                         <div class="content">
                             <div fxLayout="row" fxLayoutGap="20px">
                                 <div fxFlex="10" class="block">
@@ -66,7 +62,7 @@
                                         </p>
                                     </div>
                                     <p class="p-medium ">
-                                        34D, Mirpur, Pallabi, <br />
+                                        34D, Mirpur-12, Pallabi, <br />
                                         Dhaka
                                     </p>
 
@@ -82,7 +78,7 @@
                         </div>
                     </div>
 
-                    <div class="box-3">
+                    <div ngClass.lt-md="lt-md-box-3" ngClass.lt-lg="lt-lg-box-3" class="box-3">
                         <div class="content">
                             <div fxLayout="row" fxLayoutGap="20px">
                                 <div fxFlex="10" class="block">
@@ -123,7 +119,7 @@
                 [ngClass]="[story2 ? 'show-flex-column' : 'hide-flex-column']"
             >
                 <div fxLayout="column">
-                    <div class="box-1">
+                    <div ngClass.lt-md="lt-md-box-1" ngClass.lt-lg="lt-lg-box-1" class="box-1">
                         <div class="content">
                             <div fxLayout="row" fxLayoutGap="20px">
                                 <div fxFlex="10" class="block">
@@ -154,7 +150,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="box-2">
+                    <div ngClass.lt-md="lt-md-box-2" ngClass.lt-lg="lt-lg-box-2" class="box-2">
                         <div class="content">
                             <div fxLayout="row" fxLayoutGap="20px">
                                 <div fxFlex="10" class="block">
@@ -171,7 +167,7 @@
                                         </p>
                                     </div>
                                     <p class="p-medium fadeIn animated">
-                                        House 34D, MIrpur 11.5, <br />
+                                        House 34D, Section 12, <br />
                                         Pallabi, Dhaka
                                     </p>
 
@@ -187,7 +183,7 @@
                         </div>
                     </div>
 
-                    <div class="box-3">
+                    <div ngClass.lt-md="lt-md-box-3" ngClass.lt-lg="lt-lg-box-3" class="box-3">
                         <div class="content">
                             <div fxLayout="row" fxLayoutGap="20px">
                                 <div fxFlex="10" class="block">
@@ -227,7 +223,7 @@
                 [ngClass]="[story3 ? 'show-flex-column' : 'hide-flex-column']"
             >
                 <div fxLayout="column">
-                    <div class="box-1"  [ngClass]="[ boxFinal ? 'box1-final' : '']">
+                    <div  [ngClass.lt-md]="['lt-md-box-1', boxFinal ? 'box1-final' : '']" [ngClass.lt-lg]="['lt-lg-box-1', boxFinal ? 'box1-final' : '']" class="box-1"  [ngClass]="[ boxFinal ? 'box1-final' : '']">
                         <div class="content">
                             <div fxLayout="row" fxLayoutGap="20px">
                                 <div fxFlex="10" class="block">
@@ -258,7 +254,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="box-2" [ngClass]="[ boxFinal ? 'box2-final' : '']">
+                    <div [ngClass.lt-md]="['lt-md-box-2', boxFinal ? 'box2-final' : '']" [ngClass.lt-lg]="['lt-lg-box-2', boxFinal ? 'box2-final' : '']" class="box-2" [ngClass]="[ boxFinal ? 'box2-final' : '']">
                         <div class="content">
                             <div fxLayout="row" fxLayoutGap="20px">
                                 <div fxFlex="10" class="block">
@@ -275,8 +271,8 @@
                                         </p>
                                     </div>
                                     <p class="p-medium fadeIn animated">
-                                        House 547, Road 11, Block G, <br />
-                                        Bashundhara R/A, Dhaka
+                                        House 34-D, Pallabi, <br />
+                                        Mirpur, Dhaka
                                     </p>
 
                                     <div class="progress-bar animated" [ngClass]="[ progressBar ? 'fadeOut' : '']">
@@ -291,7 +287,7 @@
                         </div>
                     </div>
 
-                    <div class="box-3" [ngClass]="[ boxFinal ? 'box3-final' : '']">
+                    <div [ngClass.lt-md]="['lt-md-box-3', boxFinal ? 'box3-final' : '']" [ngClass.lt-lg]="['lt-lg-box-3', boxFinal ? 'box3-final' : '']" class="box-3" [ngClass]="[ boxFinal ? 'box3-final' : '']">
                         <div class="content">
                             <div fxLayout="row" fxLayoutGap="20px">
                                 <div fxFlex="10" class="block">
@@ -308,8 +304,8 @@
                                         </p>
                                     </div>
                                     <p class="p-medium fadeIn animated">
-                                        House 547, Road 11, Block G, <br />
-                                        Bashundhara R/A, Dhaka
+                                        House 264, Road 19, <br />
+                                        Dhanmondi, Dhaka
                                     </p>
 
                                     <div class="progress-bar animated" [ngClass]="[ progressBar ? 'fadeOut' : '']">
@@ -329,45 +325,48 @@
 
 
         <div
-            fxFlex.lt-sm="100"
-            fxFlex="50"
-            fxLayout="column"
-            fxLayoutAlign="start start"
+        fxFlex.lt-sm="100" fxFlex="46" fxFlex.lt-md="52"
         >
             <div class="bkoi-grid-content-right brief">
-                <h1 >
-                    Rupantor
-                    <span class="by-bkoi">
-                        by Barikoi
-                    </span>
-                </h1>
-
-                <p class="mb-1">
-                    First of its kind API that turns your bad <br />
-                    address into good ones !
-                </p>
-
-                <p class="p-light-default animated fadeInRight animatedText">
-                    Our rich, error-free database is a great source for <br />
-                    the growing logistic industry in our country.
-                </p>
-
-
-                <div fxLayout="row" fxLayoutAlign="start start">
-
-                    
-                    <a href="https://rupantor.barikoi.com" target="_blank"><button
-                        class="bkoi-btn bkoi-btn-info btn-info-circle animatedBtn animated fadeInRight faster"
+                <div fxLayout="column" fxLayoutAlign="center center" ngClass.lt-md='lt-md-custom' ngClass.lt-lg='lt-md-custom'>
+                    <h1 >
+                        Rupantor
+                        <span class="by-bkoi">
+                            by Barikoi
+                        </span>
+                    </h1>
+    
+                    <p class="mb-1">
+                        First of its kind API that turns your bad <br />
+                        address into good ones !
+                    </p>
+    
+                    <p class="p-light-default animated fadeInRight animatedText">
+                        Our rich, error-free database is a great source for <br />
+                        the growing logistic industry in our country.
+                    </p>
+    
+    
+                    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="start start" >
+    
+                        
+                        <a href="https://rupantor.barikoi.com" style="color: white;" target="_blank"><button
+                            [ngClass.lt-md]="['lt-md-bkoi-btn', 'lt-md-bkoi-btn-info', '.lt-md-btn-info-circle']"
+                            [ngClass.lt-lg]="['lt-md-bkoi-btn', 'lt-md-bkoi-btn-info', '.lt-md-btn-info-circle']"
+                            class="bkoi-btn bkoi-btn-info btn-info-circle animatedBtn animated fadeInRight faster"
+                            ><span style="color: white;">Try Rupantor Demo</span>
+                          
+                            </button></a>
+    
+                        <button
+                            routerLink="/signup"
+                            [ngClass.lt-md]="['lt-md-bkoi-btn', 'lt-md-bkoi-btn-primary', '.lt-md-btn-primary-circle']"
+                            [ngClass.lt-lg]="['lt-md-bkoi-btn', 'lt-md-bkoi-btn-primary', '.lt-md-btn-primary-circle']"
+                            class="bkoi-btn bkoi-btn-primary btn-primary-circle animatedBtn animated fadeInRight faster"
                         >
-                       Try Rupantor Demo
-                        </button></a>
-
-                    <button
-                        routerLink="/signup"
-                        class="bkoi-btn bkoi-btn-primary btn-primary-circle animatedBtn animated fadeInRight faster"
-                    >
-                    Get Started
-                    </button>
+                        Get Started
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

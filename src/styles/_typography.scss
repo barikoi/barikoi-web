@@ -109,3 +109,29 @@ legend {
 .op-80 {
     opacity: 80%;
 }
+
+.lt-md-custom{
+    h1{
+        font-size: 30px; 
+        font-weight: 500;
+        opacity: 85%;
+    }
+
+    h2 {
+        font-size: 26px;
+        font-weight: 300;
+    }
+
+    h3 {
+        font-size: 23px;
+        font-weight: 300;
+    }
+    
+    p {
+        font-size: 19px;
+        // font: 32px/44px;
+        line-height: 1.2;
+        line-break: auto
+        // font-weight: 400;
+    }
+}

@@ -144,9 +144,14 @@ export class SearchComponent implements OnInit {
                     data.places.forEach((addr: AutocompleteAddress) => {
                         const ab = addr.new_address.split(',');
 
+                        console.log(addr)
+                        console.log(ab)
                         // splitting first words before comma
-                        ab.shift();
+                        const first_seg =  ab.shift();
                         addr.cropped_address = ab.toString();
+                        if(addr.place_name == null){
+                            addr.place_name = first_seg
+                        }
                         addr.place_name_2 = addr.place_name;
                     });
 

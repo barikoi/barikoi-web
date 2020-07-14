@@ -1,18 +1,18 @@
 <div class="bkoi-built-with component">
-  <div fxLayout="row" fxLayout.lt-sm="column">
+  <div fxLayout="row" fxLayout.lt-sm="column" fxLayout.lt-md="row" fxLayoutAlign="start center"  fxFlexFill>
 
     <!-- left panel  -->
-    <div fxFlex.lt-sm="100" fxFlex="50" class="bkoi-app">
+    <div fxFlex.lt-sm="100" fxFlex="50" class="bkoi-app"fxFlex.lt-sm="100" fxFlex="50" fxFlex.lt-md="42" fxLayout.lt-sm="row" fxLayoutAlign="center center" class="bkoi-app">
 
       <div fxLayout="row" fxLayoutAlign="start center">
 
         <div class="bkoi-home-left-content">
-          <div fxLayout="column" fxLayoutAlign="space-evenly start">
+          <div fxLayout="column" fxLayoutAlign="space-evenly start" ngClass.lt-md='lt-md-custom'> 
             <h1 class="">
               Users who trusted our platform 
             </h1>
 
-            <div class="built-with-direction">
+            <div class="built-with-direction" ngClass.lt-md='lt-md-custom'>
               <mat-divider></mat-divider>
 
               <h3 class=""> Built with Barikoi
@@ -23,7 +23,7 @@
             </div>
 
             <div fxLayout="row" fxLayoutAlign="start start">
-                <button routerLink="/signup" class="bkoi-btn bkoi-btn-primary btn-primary-circle" >Start Building!</button>
+                <button routerLink="/signup" [ngClass.lt-md]="['lt-md-bkoi-btn', 'lt-md-bkoi-btn-primary', '.lt-md-btn-primary-circle']" class="bkoi-btn bkoi-btn-primary btn-primary-circle" >Start Building!</button>
             </div>
 
 
@@ -35,48 +35,51 @@
     </div>
 
     <!-- right panel -->
-    <div fxFlex.lt-sm="100" fxFlex="50" class="bus-content">
-
-      <div fxLayout="row" fxLayoutAlign="start start">
+    <div fxFlex.lt-sm="100" fxFlex="50" fxFlex.lt-md="58" class="bus-content">
+      <div class="bkoi-grid-content-right">
+        <div fxLayout="row" fxLayoutAlign="center start" ngClass.lt-md='lt-md-custom'>
         
           <div>
-            <img class="complogo" src="assets/logocom/sheba.jpg"  alt="" srcset="">
+            <img ngClass.lt-md='lt-md-complogo' ngClass.lt-lg='lt-md-complogo' class="complogo" src="assets/logocom/sheba.jpg"  alt="" srcset="">
           </div>
 
           <div>
-            <img class="complogo" src="assets/logocom/chaldal.jpg" alt="" srcset="">
+            <img ngClass.lt-md='lt-md-complogo' ngClass.lt-lg='lt-md-complogo' class="complogo" src="assets/logocom/chaldal.jpg" alt="" srcset="">
           </div>
 
           <div>
-            <img class="complogo"  src="assets/logocom/ajkerdeal.jpg" alt="" srcset="">
+            <img ngClass.lt-md='lt-md-complogo' ngClass.lt-lg='lt-md-complogo' class="complogo"  src="assets/logocom/ajkerdeal.jpg" alt="" srcset="">
           </div>
   
       </div>
 
-      <div fxLayout="row" fxLayoutAlign="start start">
+      <div fxLayout="row" fxLayoutAlign="center start">
         
         <div>
-          <img class="complogo" src="assets/logocom/styline.jpg"  alt="" srcset="">
+          <img ngClass.lt-md='lt-md-complogo' ngClass.lt-lg='lt-md-complogo' class="complogo" src="assets/logocom/styline.jpg"  alt="" srcset="">
         </div>
 
         <div>
-          <img class="complogo" src="assets/logocom/easytrax.jpg" alt="" srcset="">
+          <img ngClass.lt-md='lt-md-complogo' ngClass.lt-lg='lt-md-complogo' class="complogo" src="assets/logocom/easytrax.jpg" alt="" srcset="">
         </div>
 
         <div>
-          <img class="complogo" src="assets/logocom/lk.jpg" alt="" srcset="">
+          <img ngClass.lt-md='lt-md-complogo' ngClass.lt-lg='lt-md-complogo' class="complogo" src="assets/logocom/lk.jpg" alt="" srcset="">
         </div>
 
     </div>
 
-    <div fxLayout="row" fxLayoutAlign="start start">
+    <div fxLayout="row" fxLayoutAlign="center start">
         
       <div>
-        <img class="complogo" src="assets/logocom/walletmix.jpg"  alt="" srcset="">
+        <img ngClass.lt-md='lt-md-complogo'  ngClass.lt-lg='lt-md-complogo' class="complogo" src="assets/logocom/walletmix.jpg"  alt="" srcset="">
       </div>
 
 
   </div>
+      </div>
+
+      
 
     </div>
 

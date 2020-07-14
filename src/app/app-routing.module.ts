@@ -15,6 +15,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { DevDashComponent } from './developer-dashboard/dev-dash/dev-dash.component'
 import { AccountComponent } from './developer-dashboard/account/account.component'
 import { AnalyticsComponent } from './developer-dashboard/analytics/analytics.component'
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+
 
 
 import { AuthService as AuthGuard } from './services/auth.service';
@@ -24,6 +26,7 @@ import { RoleGuardService as RoleGuard } from './services/role-guard.service'
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'pricing', component: PricingComponent},
+  { path: 'privacy', component: PrivacyPolicyComponent},
   { path: 'urban-engine', component: UrbanEngineComponent },
   { path: 'api', component: BarikoiApiComponent },
   { path: 'avy', component: BkoiAddressVerifyComponent },
